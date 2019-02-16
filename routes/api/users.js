@@ -1,93 +1,81 @@
-const express = require('express');
-const router = express.Router();
-const gravatar = require('gravatar');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys');
-const passport = require('passport');
+const express = require('express')
+const router = express.Router()
+const gravatar = require('gravatar')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+const keys = require('../../config/keys')
+const passport = require('passport')
 
 // Load input Validation
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
+const validateRegisterInput = require('../../validation/register')
+const validateLoginInput = require('../../validation/login')
 
 //Load user mode
-const User = require('../../models/User');
-
-// @route:   http://localhost:5000/api/users/test
-// @desc:    tests users route
-// @access:  public
-router.get('/test', (req, res) => res.json({ msg: 'Users Works' }));
+const User = require('../../models/User')
 
 // @route:   POST http://localhost:5000/api/users/register
 // @desc:    register user
 // @access:  public
 router.post('/register', (req, res) => {
-  const { errors, isValid } = validateRegisterInput(req.body);
+  const { errors, isValid } = validateRegisterInput(req.body)
 
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.status(400).json(errors)
   }
 
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      errors.email = 'Email already exists';
-      return res.status(400).json(errors);
+      errors.email = 'Email already exists'
+      return res.status(400).json(errors)
     } else {
       const avatar = gravatar.url(req.body.email, {
         s: '200', // Size
         r: 'pg', // Rating
         d: 'mm' //Default
-      });
+      })
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
         avatar,
         password: req.body.password
-      });
+      })
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
-          newUser.password = hash;
+          if (err) throw err
+          newUser.password = hash
           newUser
             .save()
             .then(user => res.json(user))
-            .catch(err => console.log(err));
-        });
-      });
+            .catch(err => console.log(err))
+        })
+      })
     }
-  });
-});
+  })
+})
 
 // @route:   http://localhost:5000/api/users/login
 // @desc:    login user
 // @access:  public
 
 router.post('/login', (req, res) => {
-  const { errors, isValid } = validateLoginInput(req.body);
+  const { errors, isValid } = validateLoginInput(req.body)
 
-  // Check Validation
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.status(400).json(errors)
   }
 
-  const email = req.body.email;
-  const password = req.body.password;
+  const email = req.body.email
+  const password = req.body.password
 
-  // Find user by email
   User.findOne({ email }).then(user => {
-    // Check for user
     if (!user) {
-      errors.email = 'User not found';
-      return res.status(404).json(errors);
+      errors.email = 'User not found'
+      return res.status(404).json(errors)
     }
 
-    // Check Password
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        // User Matched
-        const payload = { id: user.id, name: user.name, avatar: user.avatar }; // Create JWT Payload
-
-        // Sign Token
+        const payload = { id: user.id, name: user.name, avatar: user.avatar }
         jwt.sign(
           payload,
           keys.secretOrKey,
@@ -96,16 +84,16 @@ router.post('/login', (req, res) => {
             res.json({
               success: true,
               token: 'Bearer ' + token
-            });
+            })
           }
-        );
+        )
       } else {
-        errors.password = 'Password incorrect';
-        return res.status(400).json(errors);
+        errors.password = 'Password incorrect'
+        return res.status(400).json(errors)
       }
-    });
-  });
-});
+    })
+  })
+})
 
 // @route:   http://localhost:5000/api/users/current
 // @desc:    return current user
@@ -118,7 +106,7 @@ router.get(
       id: req.user.id,
       name: req.user.name,
       email: req.user.email
-    });
+    })
   }
-);
-module.exports = router;
+)
+module.exports = router
