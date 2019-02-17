@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Landing from './components/layout/landing/Landing'
 import './App.css'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello World</h1>
+        <Router>
+          <Route exact path="/" component={Landing} />
+        </Router>
       </div>
     )
   }
