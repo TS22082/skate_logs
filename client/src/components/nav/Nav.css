@@ -1,6 +1,7 @@
 .navigation__checkbox {
   display: none;
 }
+
 .navigation__button {
   background-color: white;
   height: 5rem;
@@ -14,6 +15,7 @@
   text-align: center;
   cursor: pointer;
 }
+
 .navigation__background {
   height: 5rem;
   width: 5rem;
@@ -25,6 +27,7 @@
   z-index: 1000;
   transition: transform 0.8s ease-in-out;
 }
+
 .navigation__nav {
   height: 100vh;
   position: fixed;
@@ -35,6 +38,7 @@
   width: 0;
   transition: all 0.8s ease-in-out;
 }
+
 .navigation__list {
   position: absolute;
   top: 50%;
@@ -44,9 +48,11 @@
   text-align: center;
   width: 100%;
 }
+
 .navigation__item {
   margin: 1rem;
 }
+
 .navigation__link:link,
 .navigation__link:visited {
   display: inline-block;
@@ -65,23 +71,28 @@
   background-size: 300%;
   transition: all 0.4s;
 }
+
 .navigation__link:hover,
 .navigation__link:active {
   background-position: 100%;
   color: black;
   transform: translateX(1rem);
 }
+
 .navigation__checkbox:checked ~ .navigation__background {
   transform: scale(80);
 }
+
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
   width: 100%;
 }
+
 .navigation__icon {
   position: relative;
   margin-top: 2.7rem;
 }
+
 .navigation__icon,
 .navigation__icon::before,
 .navigation__icon::after {
@@ -90,6 +101,7 @@
   background-color: grey;
   display: inline-block;
 }
+
 .navigation__icon::before,
 .navigation__icon::after {
   content: '';
@@ -97,25 +109,32 @@
   left: 0;
   transition: all 0.2s;
 }
+
 .navigation__icon::before {
   top: -0.8rem;
 }
+
 .navigation__icon::after {
   top: 0.8rem;
 }
+
 .navigation__button:hover .navigation__icon::before {
   top: -1rem;
 }
+
 .navigation__button:hover .navigation__icon::after {
   top: 1rem;
 }
+
 .navigation__checkbox:checked + .navigation__button .navigation__icon {
   background-color: transparent;
 }
+
 .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
   top: 0;
   transform: rotate(135deg);
 }
+
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
   top: 0;
   transform: rotate(-135deg);

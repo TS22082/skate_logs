@@ -13,22 +13,22 @@ class Nav extends Component {
         <nav class="navigation__nav">
           <ul class="navigation__list">
             <li class="navigation__item">
-              <a href="#" class="navigation__link">
+              <a href="/" class="navigation__link">
                 Profile
               </a>
             </li>
             <li class="navigation__item">
-              <a href="#" class="navigation__link">
+              <a href="/" class="navigation__link">
                 Post Feed
               </a>
             </li>
             <li class="navigation__item">
-              <a href="#" class="navigation__link">
+              <a href="/" class="navigation__link">
                 Sign In
               </a>
             </li>
             <li class="navigation__item">
-              <a href="#" class="navigation__link">
+              <a href="/" class="navigation__link">
                 Sign Out
               </a>
             </li>
