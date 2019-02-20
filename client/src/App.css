@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  backface-visibility: hidden;
 }
 
 .App-logo {
