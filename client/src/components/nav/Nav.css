@@ -1,16 +1,13 @@
-body {
-  background-color: grey;
-}
 .navigation__checkbox {
   display: none;
 }
 .navigation__button {
   background-color: white;
-  height: 7rem;
-  width: 7rem;
+  height: 5rem;
+  width: 5rem;
   position: fixed;
-  top: 6rem;
-  right: 6rem;
+  top: 4rem;
+  right: 4rem;
   border-radius: 50%;
   z-index: 2000;
   box-shadow: 0 1rem 3rem rbga(black, 0.1);
@@ -18,12 +15,12 @@ body {
   cursor: pointer;
 }
 .navigation__background {
-  height: 6rem;
-  width: 6rem;
+  height: 5rem;
+  width: 5rem;
   border-radius: 50%;
   position: fixed;
-  top: 6.5rem;
-  right: 6.5rem;
+  top: 4rem;
+  right: 4rem;
   background-image: radial-gradient(black, white);
   z-index: 1000;
   transition: transform 0.8s ease-in-out;
@@ -53,7 +50,7 @@ body {
 .navigation__link:link,
 .navigation__link:visited {
   display: inline-block;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 300;
   padding: 1rem 2rem;
   color: white;
@@ -67,11 +64,6 @@ body {
   );
   background-size: 300%;
   transition: all 0.4s;
-}
-.navigation__link:link,
-.navigation__link:visited {
-  margin-right: 1.5rem;
-  display: inline-block;
 }
 .navigation__link:hover,
 .navigation__link:active {
@@ -88,7 +80,7 @@ body {
 }
 .navigation__icon {
   position: relative;
-  margin-top: 3.5rem;
+  margin-top: 2.7rem;
 }
 .navigation__icon,
 .navigation__icon::before,
