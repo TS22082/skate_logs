@@ -24,6 +24,11 @@ class Nav extends Component {
             </li>
             <li class="navigation__item">
               <a href="/" class="navigation__link">
+                Sign Up
+              </a>
+            </li>
+            <li class="navigation__item">
+              <a href="/" class="navigation__link">
                 Sign In
               </a>
             </li>
