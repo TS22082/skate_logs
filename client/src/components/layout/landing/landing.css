@@ -14,9 +14,6 @@
   object-fit: cover;
 }
 
-.landing {
-}
-
 .login_and_singup {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -27,6 +24,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .landing-heading {
   font-size: 3.5rem;
   text-transform: uppercase;
