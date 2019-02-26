@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import 'signin.css'
+import './login.css'
 
-class SignIn extends Component {
+class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Sign in works</h1>
+        <h1>Login works</h1>
       </div>
     )
   }
 }
 
-export default SignIn
+export default Login

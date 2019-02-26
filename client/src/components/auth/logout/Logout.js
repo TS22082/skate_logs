@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import 'signout.css'
+import './logout.css'
 
-class SignOut extends Component {
+class Logout extends Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class SignOut extends Component {
   }
 }
 
-export default SignOut
+export default Logout
