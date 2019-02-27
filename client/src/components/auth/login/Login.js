@@ -5,7 +5,28 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Login works</h1>
+        <form action="" className="form">
+          <input
+            type="text"
+            className="emailInput"
+            placeholder="email"
+            id="email"
+            required
+          />
+          <input
+            type="password"
+            className="passwordInput"
+            placeholder="password"
+            id="password"
+            required
+          />
+          <div className="btnGroup">
+            <a href="/signup" className="signupBtn">
+              Sign up
+            </a>
+            <button className="btn btnLogin">Login</button>
+          </div>
+        </form>
       </div>
     )
   }
