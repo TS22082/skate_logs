@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import video from '../../../img/Cross_frame.mp4'
 import './landing.css'
+import Login from './../../auth/login/Login';
 
 class Landing extends Component {
   render() {
@@ -11,6 +12,7 @@ class Landing extends Component {
         </div>
         <div className="login_and_singup">
           <h2 className="landing-heading">Skate about it</h2>
+          <Login/>
         </div>
       </div>
     )
