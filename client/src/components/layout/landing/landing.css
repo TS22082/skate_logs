@@ -16,7 +16,10 @@
 
 .login_and_singup {
   background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px;
+  /* display: grid;
+  align-content: center; */
+  height: 70vh;
+  margin: 0px;
   border-radius: 3px;
   width: 50%;
   position: absolute;
