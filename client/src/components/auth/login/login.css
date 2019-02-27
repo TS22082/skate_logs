@@ -1,0 +1,62 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.emailInput,
+.passwordInput {
+  width: 80%;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: 3px solid white;
+  color: white;
+  background-color: black;
+  justify-self: center;
+  transition: all 0.2s ease-in-out;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 1rem 2rem rgba(black, 0.1);
+  border-bottom: 3px solid white;
+}
+
+input:focus:invalid {
+  border-bottom: 3px solid #e74c3c;
+}
+
+.btnGroup {
+  width: 80%;
+  /* height: 100px; */
+  padding-top: 20px;
+  justify-self: center;
+}
+
+.btnLogin {
+  float: right;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: white;
+  background-color: black;
+  border: solid white;
+  transition: all 0.2s ease-in-out;
+}
+
+.signupBtn {
+  color: #3498db;
+  float: left;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
