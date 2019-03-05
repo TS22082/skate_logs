@@ -5,8 +5,13 @@ import Login from './../../auth/login/Login'
 import Signup from '../../auth/signup/SignUp'
 
 class Landing extends Component {
+  constructor() {
+    super()
+    this.state = {
+      login: true
+    }
+  }
   render() {
-    let login = true
     return (
       <div className="landing">
         <div className="bg-video">
@@ -14,7 +19,7 @@ class Landing extends Component {
         </div>
         <div className="login_and_singup">
           <h2 className="landing-heading">Skate about it</h2>
-          {login ? <Login /> : <Signup />}
+          {this.state.login ? <Login /> : <Signup />}
         </div>
       </div>
     )
