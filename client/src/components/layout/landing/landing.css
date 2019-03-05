@@ -24,6 +24,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: fadeIn 1s ease-in-out;
 }
 
 .landing-heading {
@@ -34,4 +35,13 @@
   color: white;
   letter-spacing: 2px;
   transition: all 0.2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
