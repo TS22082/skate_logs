@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import video from '../../../img/Cross_frame.mp4'
 import './landing.css'
-import Login from './../../auth/login/Login';
+import Login from './../../auth/login/Login'
+import Signup from '../../auth/signup/SignUp'
 
 class Landing extends Component {
   render() {
+    let login = true
     return (
       <div className="landing">
         <div className="bg-video">
@@ -12,7 +14,7 @@ class Landing extends Component {
         </div>
         <div className="login_and_singup">
           <h2 className="landing-heading">Skate about it</h2>
-          <Login/>
+          {login ? <Login /> : <Signup />}
         </div>
       </div>
     )
