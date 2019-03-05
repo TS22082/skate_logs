@@ -21,12 +21,28 @@ class Login extends Component {
             required
           />
           <div className="btnGroup">
-            <a href="/signup" className="signupBtn">
+            <a href="#popup" className="signupBtn">
               Sign up
             </a>
             <button className="btn btnLogin">Login</button>
           </div>
         </form>
+
+        <div className="popup" id="popup">
+          <div className="popup__content">
+            <div className="popup__left">
+              <input type="text" />
+              <input type="text" />
+              <input type="text" />
+            </div>
+            <div className="popup__right">
+              <a href="/" className="popup__close">
+                &times;
+              </a>
+              <textarea rows="4" cols="50" />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
