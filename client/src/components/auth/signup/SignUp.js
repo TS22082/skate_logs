@@ -5,7 +5,32 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <h1>Signup works</h1>
+        <form action="" className="form">
+          <input
+            type="text"
+            className="emailInput"
+            placeholder="email"
+            id="email"
+            required
+          />
+          <input
+            type="text"
+            className="passwordInput"
+            placeholder="choose strong password"
+            id="password"
+            required
+          />
+          <input
+            type="text"
+            className="passwordInput"
+            placeholder="enter password again"
+            id="password"
+            required
+          />
+          <div className="btnGroup">
+            <button className="btn btnLogin">Sign Up</button>
+          </div>
+        </form>
       </div>
     )
   }
