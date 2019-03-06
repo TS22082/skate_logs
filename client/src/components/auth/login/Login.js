@@ -6,7 +6,7 @@ class Login extends Component {
     return (
       <form action="" className="form">
         <input
-          type="text"
+          type="email"
           className="emailInput"
           placeholder="email"
           id="email"
@@ -20,9 +20,12 @@ class Login extends Component {
           required
         />
         <div className="btnGroup">
-          <a href="#popup" className="signupBtn">
-            Sign up
-          </a>
+          <button
+            className="signupBtn"
+            onClick={() => this.props.changeWindow()}
+          >
+            Sign Up
+          </button>
           <button className="btn btnLogin">Login</button>
         </div>
       </form>

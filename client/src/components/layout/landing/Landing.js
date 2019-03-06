@@ -11,6 +11,12 @@ class Landing extends Component {
       login: true
     }
   }
+
+  changeWindow() {
+    this.state.login
+      ? this.setState({ login: false })
+      : this.setState({ login: true })
+  }
   render() {
     return (
       <div className="landing">
@@ -19,7 +25,11 @@ class Landing extends Component {
         </div>
         <div className="login_and_singup">
           <h2 className="landing-heading">Skate about it</h2>
-          {this.state.login ? <Login /> : <Signup />}
+          {this.state.login ? (
+            <Login changeWindow={() => this.changeWindow()} />
+          ) : (
+            <Signup changeWindow={() => this.changeWindow()} />
+          )}
         </div>
       </div>
     )

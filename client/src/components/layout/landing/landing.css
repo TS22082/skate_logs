@@ -27,6 +27,15 @@
   animation: fadeIn 1s ease-in-out;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .landing-heading {
   font-size: 3.5rem;
   text-transform: uppercase;
@@ -35,13 +44,4 @@
   color: white;
   letter-spacing: 2px;
   transition: all 0.2s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }

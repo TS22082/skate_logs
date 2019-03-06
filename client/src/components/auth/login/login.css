@@ -1,7 +1,7 @@
 .form {
   display: grid;
   grid-template-columns: 1fr;
-  animation: fadeIn 5s ease;
+  animation: fadeIn 2s ease;
 }
 
 .emailInput,
@@ -25,7 +25,7 @@
 input:focus {
   outline: none;
   box-shadow: 0 1rem 2rem rgba(black, 0.1);
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid #2ecc71;
 }
 
 input:focus:invalid {
@@ -52,6 +52,11 @@ input:focus:invalid {
 .signupBtn {
   color: #3498db;
   float: left;
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  text-decoration: underline;
+  justify-self: center;
 }
 
 .btn:hover {

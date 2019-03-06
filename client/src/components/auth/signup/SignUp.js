@@ -28,6 +28,12 @@ class Signup extends Component {
             required
           />
           <div className="btnGroup">
+            <button
+              className="signupBtn"
+              onClick={() => this.props.changeWindow()}
+            >
+              Login
+            </button>
             <button className="btn btnLogin">Sign Up</button>
           </div>
         </form>
