@@ -35,7 +35,7 @@ input:focus:invalid {
 .btnGroup {
   width: 80%;
   /* height: 100px; */
-  padding-top: 20px;
+  margin-top: 20px;
   justify-self: center;
 }
 
@@ -50,13 +50,13 @@ input:focus:invalid {
 }
 
 .signupBtn {
-  color: #3498db;
   float: left;
+  font-size: 0.75rem;
+  color: #3498db;
   background-color: transparent;
   border: none;
   text-transform: uppercase;
   text-decoration: underline;
-  justify-self: center;
 }
 
 .btn:hover {

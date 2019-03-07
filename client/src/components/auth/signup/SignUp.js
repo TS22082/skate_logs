@@ -2,39 +2,72 @@ import React, { Component } from 'react'
 import './signup.css'
 
 class Signup extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      email: '',
+      password: '',
+      password2: ''
+    }
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  onSubmit(e) {
+    e.preventDefault()
+    const userData = {
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2
+    }
+    console.log(userData)
+  }
+
   render() {
     return (
       <div>
-        <form action="" className="form">
+        <form onSubmit={this.onSubmit} className="form">
           <input
-            type="text"
-            className="emailInput"
+            type="email"
+            name="email"
             placeholder="email"
+            onChange={this.onChange}
+            className="emailInput"
             id="email"
             required
           />
           <input
             type="text"
-            className="passwordInput"
+            name="password"
             placeholder="choose strong password"
+            onChange={this.onChange}
+            className="passwordInput"
             id="password"
             required
           />
           <input
             type="text"
-            className="passwordInput"
+            name="password2"
             placeholder="enter password again"
-            id="password"
+            onChange={this.onChange}
+            className="passwordInput"
+            id="password2"
             required
           />
           <div className="btnGroup">
+            <button type="submit" className="btn btnLogin">
+              Sign Up
+            </button>
             <button
               className="signupBtn"
               onClick={() => this.props.changeWindow()}
             >
               Login
             </button>
-            <button className="btn btnLogin">Sign Up</button>
           </div>
         </form>
       </div>
