@@ -5,7 +5,7 @@ import { GET_ERRORS } from './types'
 export const registerUser = (userData, history) => {
   axios
     .post('/api/users/register', userData)
-    .then(res => history.push('/login'))
+    .then(res => history.push('/'))
     .catch(err =>
       dispatchEvent({
         type: GET_ERRORS,

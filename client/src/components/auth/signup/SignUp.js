@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import './signup.css'
+import { registerUser } from '../../../redux_state/actions/authActions'
 
 class Signup extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      name: '',
       email: '',
       password: '',
       password2: ''
@@ -19,18 +24,29 @@ class Signup extends Component {
 
   onSubmit(e) {
     e.preventDefault()
-    const userData = {
+    const newUser = {
+      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
     }
-    console.log(userData)
+    console.log(newUser)
+    this.props.registerUser(newUser, this.props.history)
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this.onSubmit} className="form">
+          <input
+            type="text"
+            name="name"
+            placeholder="enter your name"
+            onChange={this.onChange}
+            className="emailInput"
+            id="naame"
+            required
+          />
           <input
             type="email"
             name="email"
@@ -75,4 +91,13 @@ class Signup extends Component {
   }
 }
 
-export default Signup
+Signup.propTypes = {
+  registerUser: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({})
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Signup))
