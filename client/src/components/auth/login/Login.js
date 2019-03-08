@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './login.css'
+import { connect } from 'react-redux'
+import { loginUser } from '../../../redux_state/actions/authActions'
 
 class Login extends Component {
   constructor(props) {
@@ -22,7 +24,7 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     }
-    console.log(userData)
+    this.props.loginUser(userData)
   }
 
   render() {
@@ -62,4 +64,11 @@ class Login extends Component {
   }
 }
 
-export default Login
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Login)

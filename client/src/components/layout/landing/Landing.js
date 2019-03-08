@@ -5,8 +5,8 @@ import Login from './../../auth/login/Login'
 import Signup from '../../auth/signup/SignUp'
 
 class Landing extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       login: true
     }

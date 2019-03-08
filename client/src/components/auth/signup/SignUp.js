@@ -6,8 +6,8 @@ import './signup.css'
 import { registerUser } from '../../../redux_state/actions/authActions'
 
 class Signup extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       name: '',
       email: '',
@@ -30,7 +30,6 @@ class Signup extends Component {
       password: this.state.password,
       password2: this.state.password2
     }
-    console.log(newUser)
     this.props.registerUser(newUser, this.props.history)
   }
 
@@ -44,13 +43,13 @@ class Signup extends Component {
             placeholder="enter your name"
             onChange={this.onChange}
             className="emailInput"
-            id="naame"
+            id="name"
             required
           />
           <input
             type="email"
             name="email"
-            placeholder="email"
+            placeholder="Enter your email"
             onChange={this.onChange}
             className="emailInput"
             id="email"
@@ -95,7 +94,9 @@ Signup.propTypes = {
   registerUser: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({
+  auth: state.auth
+})
 
 export default connect(
   mapStateToProps,
