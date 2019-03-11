@@ -99,7 +99,6 @@ router.post(
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateProfileInput(req.body)
-    s
     if (!isValid) {
       return res.status(400).json(errors)
     }
@@ -112,9 +111,6 @@ router.post(
     if (req.body.location) profileFields.location = req.body.location
     if (req.body.bio) profileFields.bio = req.body.bio
     if (req.body.status) profileFields.status = req.body.status
-    if (typeof req.body.skills !== 'undefined') {
-      profileFields.skills = req.body.skills.split(',')
-    }
 
     // Social
     profileFields.social = {}
