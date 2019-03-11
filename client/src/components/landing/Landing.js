@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import video from '../../../img/Cross_frame.mp4'
+import video from '../../img/Cross_frame.mp4'
 import './landing.css'
-import Login from './../../auth/login/Login'
-import Signup from '../../auth/signup/SignUp'
+import Login from './../auth/login/Login'
+import Signup from '../auth/signup/SignUp'
 
 class Landing extends Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class Landing extends Component {
       ? this.setState({ login: false })
       : this.setState({ login: true })
   }
+
   render() {
     return (
       <div className="landing">
