@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './nav.css'
+import { logoutUser } from '../../redux_state/actions/authActions'
+import { connect } from 'react-redux'
 
 class Nav extends Component {
   render() {
@@ -17,27 +19,21 @@ class Nav extends Component {
         <nav className="navigation__nav">
           <ul className="navigation__list">
             <li className="navigation__item">
-              <a href="/" className="navigation__link">
+              <a href="/dashboard" className="navigation__link">
                 Profile
               </a>
             </li>
             <li className="navigation__item">
               <a href="/" className="navigation__link">
-                Post Feed
+                Skate Map
               </a>
             </li>
             <li className="navigation__item">
-              <a href="/signup" className="navigation__link">
-                Sign Up
-              </a>
-            </li>
-            <li className="navigation__item">
-              <a href="/login" className="navigation__link">
-                Log in
-              </a>
-            </li>
-            <li className="navigation__item">
-              <a href="/" className="navigation__link">
+              <a
+                href="/"
+                onClick={() => logoutUser()}
+                className="navigation__link"
+              >
                 Sign Out
               </a>
             </li>
@@ -48,4 +44,11 @@ class Nav extends Component {
   }
 }
 
-export default Nav
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(
+  mapStateToProps,
+  logoutUser
+)(Nav)

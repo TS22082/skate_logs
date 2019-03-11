@@ -1,14 +1,7 @@
 import axios from 'axios'
 import { GET_ERRORS, SET_CURRENT_USER } from '../types'
 import jwt_decode from 'jwt-decode'
-
-const setAuthToken = token => {
-  if (token) {
-    axios.defaults.headers.common['Authorization'] = token
-  } else {
-    delete axios.defaults.headers.common['Authorization']
-  }
-}
+import setAuthToken from '../../components/auth/setAuthToken'
 
 // Register user
 export const registerUser = (userData, history) => dispatch => {
@@ -53,6 +46,6 @@ export const setCurrentUser = decoded => {
 // Log user out
 export const logoutUser = () => dispatch => {
   localStorage.removeItem('jwtToken')
-  setAuthToken(false)
+  setAuthToken()
   dispatch(setCurrentUser({}))
 }
