@@ -15,8 +15,12 @@ if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken)
   const decoded = jwt_decode(localStorage.jwtToken)
   store.dispatch(setCurrentUser(decoded))
+  console.log('token found in cache')
   const currentTime = Date.now() / 1000
+  console.log('Time Left: ' + Math.ceil(decoded.exp - currentTime))
+
   if (decoded.exp < currentTime) {
+    console.log('token expired')
     store.dispatch(logoutUser())
     store.dispatch(clearCurrentProfile())
     window.location.href = '/'
