@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './nav.css'
 import { logoutUser } from '../../redux_state/actions/authActions'
 import { connect } from 'react-redux'
+import { clearCurrentProfile } from './../../redux_state/actions/profileActions'
 
 class Nav extends Component {
   render() {
@@ -29,11 +30,7 @@ class Nav extends Component {
               </a>
             </li>
             <li className="navigation__item">
-              <a
-                href="/"
-                onClick={() => logoutUser()}
-                className="navigation__link"
-              >
+              <a href="/" onClick={logoutUser()} className="navigation__link">
                 Sign Out
               </a>
             </li>
@@ -44,11 +41,9 @@ class Nav extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  auth: state.auth
-})
+const mapStateToProps = state => ({ auth: state.auth })
 
 export default connect(
   mapStateToProps,
-  logoutUser
+  { logoutUser, clearCurrentProfile }
 )(Nav)

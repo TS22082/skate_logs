@@ -47,7 +47,7 @@ export const getProfileByHandle = handle => dispatch => {
     })
 }
 
-// delete accoutn and profile
+// delete account and profile
 export const deleteAccount = () => dispatch => {
   if (window.confirm('Are you sure you want to delete this account?')) {
     axios
