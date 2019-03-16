@@ -3,12 +3,19 @@ import video from '../../img/Cross_frame.mp4'
 import './landing.css'
 import Login from './../auth/login/Login'
 import Signup from '../auth/signup/SignUp'
+import { connect } from 'react-redux'
 
 class Landing extends Component {
   constructor(props) {
     super(props)
     this.state = {
       login: true
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated === true) {
+      window.location.href = '/dashboard'
     }
   }
 
@@ -37,4 +44,6 @@ class Landing extends Component {
   }
 }
 
-export default Landing
+const mapStateToProps = state => ({ auth: state.auth })
+
+export default connect(mapStateToProps)(Landing)
