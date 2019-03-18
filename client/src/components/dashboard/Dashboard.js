@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
 import { geolocated } from 'react-geolocated'
 import Nav from '../nav/Nav'
+import Map from './map/Map'
 
 class Dashboard extends Component {
+  static defaultProps = {
+    center: {
+      lat: 59.95,
+      lng: 30.33
+    },
+    zoom: 11
+  }
+
   constructor() {
     super()
     this.state = {
@@ -28,8 +37,7 @@ class Dashboard extends Component {
     ) : this.props.coords ? (
       <div>
         <Nav />
-        <p>latitude: {this.props.coords.latitude}</p>
-        <p>longitude: {this.props.coords.longitude}</p>
+        <Map longitude={this.state.longitude} latitude={this.state.latitude} />
       </div>
     ) : (
       <div>Getting the location data&hellip; </div>
