@@ -3,12 +3,21 @@ import { geolocated } from 'react-geolocated'
 import Nav from '../nav/Nav'
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       longitude: '',
       latitude: ''
     }
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.setState({
+        longitude: position.coords.longitude,
+        latitude: position.coords.latitude
+      })
+    })
   }
 
   render() {
@@ -32,5 +41,6 @@ export default geolocated({
   positionOptions: {
     enableHighAccuracy: false
   },
-  userDecisionTimeout: 5000
+  userDecisionTimeout: 5000,
+  watchPosition: true
 })(Dashboard)
