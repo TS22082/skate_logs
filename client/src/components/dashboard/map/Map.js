@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SkateSpot from './skate_spot/SkateSpot'
+import UserLocation from './user_location/UserLocation'
 import GoogleMapReact from 'google-map-react'
 import GOOGLE_API_KEY from './../../../google_map'
 
@@ -24,7 +25,7 @@ export default class Map extends Component {
             defaultCenter={center}
             defaultZoom={14}
           >
-            <SkateSpot
+            <UserLocation
               lat={this.props.latitude}
               lng={this.props.longitude}
               text={"You're here"}

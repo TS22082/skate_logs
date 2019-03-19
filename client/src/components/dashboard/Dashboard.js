@@ -4,14 +4,6 @@ import Nav from '../nav/Nav'
 import Map from './map/Map'
 
 class Dashboard extends Component {
-  static defaultProps = {
-    center: {
-      lat: 59.95,
-      lng: 30.33
-    },
-    zoom: 11
-  }
-
   constructor() {
     super()
     this.state = {
