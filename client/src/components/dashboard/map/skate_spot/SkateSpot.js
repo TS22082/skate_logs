@@ -5,7 +5,7 @@ export default class SkateSpot extends Component {
   render() {
     return (
       <div>
-        <p className="skateSpot">Skate Here</p>
+        <p className="skateSpot">{this.props.text}</p>
       </div>
     )
   }

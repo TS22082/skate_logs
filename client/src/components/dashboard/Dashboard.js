@@ -31,16 +31,16 @@ class Dashboard extends Component {
 
   render() {
     return !this.props.isGeolocationAvailable ? (
-      <div>Your browser does not support Geolocation</div>
+      <h3>Your browser does not support Geolocation</h3>
     ) : !this.props.isGeolocationEnabled ? (
-      <div>Geolocation is not enabled</div>
+      <h3>Geolocation is not enabled</h3>
     ) : this.props.coords ? (
       <div>
         <Nav />
         <Map longitude={this.state.longitude} latitude={this.state.latitude} />
       </div>
     ) : (
-      <div>Getting the location data&hellip; </div>
+      <h3>Getting the location data&hellip; </h3>
     )
   }
 }

@@ -22,9 +22,14 @@ export default class Map extends Component {
               key: GOOGLE_API_KEY
             }}
             defaultCenter={center}
-            defaultZoom={11}
+            defaultZoom={14}
           >
-            <SkateSpot lat={this.props.latitude} lng={this.props.longitude} />
+            <SkateSpot
+              lat={this.props.latitude}
+              lng={this.props.longitude}
+              text={"You're here"}
+            />
+            <SkateSpot lat={37.881101} lng={-122.3046675} text={'Skate Spot'} />
           </GoogleMapReact>
         </div>
       </div>
