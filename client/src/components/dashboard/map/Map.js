@@ -6,7 +6,7 @@ import GOOGLE_API_KEY from './../../../google_map'
 
 export default class Map extends Component {
   componentDidMount() {
-    console.log(this.props)
+    // console.log(this.props)
   }
 
   render() {

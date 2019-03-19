@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { geolocated } from 'react-geolocated'
-import Nav from '../nav/Nav'
 import Map from './map/Map'
 
 class Dashboard extends Component {
@@ -28,7 +27,6 @@ class Dashboard extends Component {
       <h3>Geolocation is not enabled</h3>
     ) : this.props.coords ? (
       <div>
-        <Nav />
         <Map longitude={this.state.longitude} latitude={this.state.latitude} />
       </div>
     ) : (

@@ -25,6 +25,11 @@ class Nav extends Component {
               </a>
             </li>
             <li className="navigation__item">
+              <a href="/createspot" className="navigation__link">
+                New Skate Spot
+              </a>
+            </li>
+            <li className="navigation__item">
               <a href="/" className="navigation__link">
                 Skate Map
               </a>

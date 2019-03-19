@@ -11,6 +11,7 @@ import setAuthToken from './components/auth/setAuthToken'
 import { setCurrentUser, logoutUser } from './redux_state/actions/authActions'
 import { clearCurrentProfile } from './redux_state/actions/profileActions'
 import CreateSpot from './components/create_spot/CreateSpot'
+import Nav from './components/nav/Nav'
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken)
@@ -32,6 +33,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
+        <Nav />
         <Router>
           <div className="App">
             <Route exact path="/" component={Landing} />
