@@ -6,7 +6,7 @@ import { clearCurrentProfile } from './../../redux_state/actions/profileActions'
 
 class Nav extends Component {
   render() {
-    return (
+    return !this.props.auth.isAuthenticated ? null : (
       <div className="navigation">
         <input
           type="checkbox"
