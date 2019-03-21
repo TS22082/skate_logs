@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import './createSpot.css'
 import { connect } from 'react-redux'
-import { addNewSpot } from '../../../../redux_state/actions/addSpotAction'
+import {
+  addNewSpot,
+  hideNewSpotForm
+} from '../../../../redux_state/actions/spotActions'
 
 class CreateSpot extends Component {
   constructor() {
     super()
     this.state = {}
+    this.setToHide = this.setToHide.bind(this)
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
@@ -18,17 +22,22 @@ class CreateSpot extends Component {
       zip: this.state.zip
     }
     this.props.addNewSpot(skatePark)
+    console.log(this.props)
+  }
+
+  setToHide(e) {
+    e.preventDefault()
+    this.props.hideNewSpotForm()
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
-    console.log(this.state)
   }
 
   render() {
-    return (
+    return !this.props.locationData.showNewSpotForm ? null : (
       <div className="create_spot_form_contaier">
-        <form onSubmit={this.onSubmit} className="create_spot_form">
+        <form className="create_spot_form">
           <input
             type="text"
             name="street"
@@ -36,23 +45,17 @@ class CreateSpot extends Component {
             onChange={this.onChange}
             className="create_spot_input"
             id="name"
-            required
           />
           <input
-            type="email"
+            type="number"
             name="zip"
             placeholder="Zip code"
             onChange={this.onChange}
             className="create_spot_input"
             id="email"
-            required
           />
-
           <div className="create_spot_btn_group">
-            <button
-              onClick={() => alert('cancel pressed')}
-              className="cancel_spot"
-            >
+            <button onClick={this.setToHide} className="cancel_spot">
               Cancel
             </button>
             <button onClick={this.onSubmit} className="add_spot_submit">
@@ -71,5 +74,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addNewSpot }
+  { addNewSpot, hideNewSpotForm }
 )(CreateSpot)

@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 2000;
   width: 30%;
-  height: 20vh;
+  height: 150px;
   background-color: rgba(0, 0, 0, 0.527);
   padding: 20px;
 }

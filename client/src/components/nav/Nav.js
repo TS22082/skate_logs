@@ -3,8 +3,30 @@ import './nav.css'
 import { logoutUser } from '../../redux_state/actions/authActions'
 import { connect } from 'react-redux'
 import { clearCurrentProfile } from './../../redux_state/actions/profileActions'
+import { showNewAddSpotForm } from '../../redux_state/actions/spotActions'
 
 class Nav extends Component {
+  constructor() {
+    super()
+    this.state = {}
+    this.showForm = this.showForm.bind(this)
+    this.logout = this.logout.bind(this)
+  }
+
+  showForm(e) {
+    e.preventDefault()
+    this.props.showNewAddSpotForm()
+  }
+
+  logout(e) {
+    e.preventDefault()
+    this.props.logoutUser()
+  }
+
+  componentDidMount() {
+    console.log(this.props)
+  }
+
   render() {
     return !this.props.auth.isAuthenticated ? null : (
       <div className="navigation">
@@ -25,7 +47,11 @@ class Nav extends Component {
               </a>
             </li>
             <li className="navigation__item">
-              <a href="/createspot" className="navigation__link">
+              <a
+                href="/dashboard"
+                onClick={this.showForm}
+                className="navigation__link"
+              >
                 New Skate Spot
               </a>
             </li>
@@ -35,11 +61,7 @@ class Nav extends Component {
               </a>
             </li>
             <li className="navigation__item">
-              <a
-                href="/"
-                onClick={() => this.props.logoutUser()}
-                className="navigation__link"
-              >
+              <a href="#" onClick={this.logout} className="navigation__link">
                 Sign Out
               </a>
             </li>
@@ -50,9 +72,12 @@ class Nav extends Component {
   }
 }
 
-const mapStateToProps = state => ({ auth: state.auth })
+const mapStateToProps = state => ({
+  auth: state.auth,
+  locationData: state.locationData
+})
 
 export default connect(
   mapStateToProps,
-  { logoutUser, clearCurrentProfile }
+  { logoutUser, clearCurrentProfile, showNewAddSpotForm }
 )(Nav)

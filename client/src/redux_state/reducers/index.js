@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import authReducer from './authReducer'
 import errorReducer from './errorReducer'
-import addSpotReducer from './addSpotReducer'
+import addSpotReducer from './spotReducer'
 
 export default combineReducers({
   auth: authReducer,
