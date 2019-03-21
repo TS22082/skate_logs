@@ -3,10 +3,11 @@ import SkateSpot from './skate_spot/SkateSpot'
 import UserLocation from './user_location/UserLocation'
 import GoogleMapReact from 'google-map-react'
 import GOOGLE_API_KEY from './../../../google_map'
+import CreateSpot from './create_spot/CreateSpot'
 
-export default class Map extends Component {
+class Map extends Component {
   componentDidMount() {
-    // console.log(this.props)
+    console.log(this.props)
   }
 
   render() {
@@ -18,6 +19,7 @@ export default class Map extends Component {
     return (
       <div>
         <div style={{ height: '100vh', width: '100%' }}>
+          <CreateSpot lat={this.props.latitude} lng={this.props.longitude} />
           <GoogleMapReact
             bootstrapURLKeys={{
               key: GOOGLE_API_KEY
@@ -37,3 +39,5 @@ export default class Map extends Component {
     )
   }
 }
+
+export default Map

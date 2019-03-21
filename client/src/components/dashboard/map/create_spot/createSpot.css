@@ -1,12 +1,19 @@
-.signup_form {
+.create_spot_form_contaier {
+  position: fixed;
+  z-index: 2000;
+  width: 30%;
+  height: 20vh;
+  background-color: rgba(0, 0, 0, 0.527);
+}
+
+.create_spot_form {
   display: grid;
   grid-template-columns: 1fr;
   animation: fadeIn 2s ease;
 }
 
-.signup_email_input,
-.signup_password_input {
-  width: 80%;
+.create_spot_input {
+  width: 100%;
   height: 2.5rem;
   font-size: 1.5rem;
   border: none;
@@ -22,47 +29,53 @@
   padding-left: 10px;
 }
 
-input:focus {
+.create_spot_input:focus {
   outline: none;
   box-shadow: 0 1rem 2rem rgba(black, 0.1);
   border-bottom: 3px solid #2ecc71;
 }
 
-input:focus:invalid {
+.create_spot_input:focus:invalid {
   border-bottom: 3px solid #e74c3c;
 }
 
-.signup_btn_group {
-  width: 80%;
-  margin-top: 20px;
-  justify-self: center;
+.create_spot_btn_group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin-top: 10px;
 }
 
-.signup_submit_btn {
-  float: right;
+.add_spot_submit {
   text-transform: uppercase;
   font-size: 1.2rem;
+  height: 40px;
   color: white;
   background-color: black;
   border: solid white;
   transition: all 0.2s ease-in-out;
+  justify-self: end;
+  align-self: center;
 }
 
-.login_link_btn {
-  float: left;
-  font-size: 0.75rem;
-  color: #3498db;
+.cancel_spot {
   background-color: transparent;
+  color: white;
   border: none;
-  text-transform: uppercase;
-  text-decoration: underline;
+  justify-self: start;
 }
 
-.signup_submit_btn:hover {
+.cancel_spot:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.add_spot_submit:hover {
   transform: translateY(-3px);
+  cursor: pointer;
 }
 
-.signup_submit_btn:active {
+.add_spot_submit:active {
   transform: translateY(-1px);
 }
 

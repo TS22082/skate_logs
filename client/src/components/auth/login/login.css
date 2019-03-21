@@ -1,11 +1,11 @@
-.form {
+.login_form {
   display: grid;
   grid-template-columns: 1fr;
   animation: fadeIn 2s ease;
 }
 
-.emailInput,
-.passwordInput {
+.login_email_input,
+.login_password_input {
   width: 80%;
   height: 2.5rem;
   font-size: 1.5rem;
@@ -32,14 +32,13 @@ input:focus:invalid {
   border-bottom: 3px solid #e74c3c;
 }
 
-.btnGroup {
+.login_btn_group {
   width: 80%;
-  /* height: 100px; */
   margin-top: 20px;
   justify-self: center;
 }
 
-.btnLogin {
+.login_submit_btn {
   float: right;
   text-transform: uppercase;
   font-size: 1.2rem;
@@ -49,7 +48,7 @@ input:focus:invalid {
   transition: all 0.2s ease-in-out;
 }
 
-.signupBtn {
+.signup_link_btn {
   float: left;
   font-size: 0.75rem;
   color: #3498db;
@@ -59,11 +58,11 @@ input:focus:invalid {
   text-decoration: underline;
 }
 
-.btn:hover {
+.login_submit_btn:hover {
   transform: translateY(-3px);
 }
 
-.btn:active {
+.login_submit_btn:active {
   transform: translateY(-1px);
 }
 

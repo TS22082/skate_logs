@@ -29,12 +29,12 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit} className="form">
+      <form onSubmit={this.onSubmit} className="login_form">
         <input
           type="email"
           name="email"
           onChange={this.onChange}
-          className="emailInput"
+          className="login_email_input"
           placeholder="email"
           id="email"
           required
@@ -43,17 +43,17 @@ class Login extends Component {
           type="password"
           name="password"
           onChange={this.onChange}
-          className="passwordInput"
+          className="login_password_input"
           placeholder="password"
           id="password"
           required
         />
-        <div className="btnGroup">
-          <button type="submit" className="btn btnLogin">
+        <div className="login_btn_group">
+          <button type="submit" className="login_submit_btn">
             Login
           </button>
           <button
-            className="signupBtn"
+            className="signup_link_btn"
             onClick={() => this.props.changeWindow()}
           >
             Sign Up

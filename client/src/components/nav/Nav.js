@@ -30,12 +30,16 @@ class Nav extends Component {
               </a>
             </li>
             <li className="navigation__item">
-              <a href="/" className="navigation__link">
+              <a href="/dashboard" className="navigation__link">
                 Skate Map
               </a>
             </li>
             <li className="navigation__item">
-              <a href="/" onClick={logoutUser()} className="navigation__link">
+              <a
+                href="/"
+                onClick={() => this.props.logoutUser()}
+                className="navigation__link"
+              >
                 Sign Out
               </a>
             </li>

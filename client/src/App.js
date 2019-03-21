@@ -10,14 +10,13 @@ import Dashboard from './components/dashboard/Dashboard'
 import setAuthToken from './components/auth/setAuthToken'
 import { setCurrentUser, logoutUser } from './redux_state/actions/authActions'
 import { clearCurrentProfile } from './redux_state/actions/profileActions'
-import CreateSpot from './components/create_spot/CreateSpot'
 import Nav from './components/nav/Nav'
+import CreateSpot from './components/dashboard/map/create_spot/CreateSpot'
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken)
   const decoded = jwt_decode(localStorage.jwtToken)
   store.dispatch(setCurrentUser(decoded))
-  console.log('token found in cache')
   const currentTime = Date.now() / 1000
   console.log('Time Left: ' + Math.ceil(decoded.exp - currentTime))
 
@@ -41,7 +40,7 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
             <Switch>
-              <PrivateRoute exact path="/createspot" component={CreateSpot} />
+              <PrivateRoute exact path="/createSpot" component={CreateSpot} />
             </Switch>
           </div>
         </Router>
