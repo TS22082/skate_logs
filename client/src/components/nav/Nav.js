@@ -13,9 +13,14 @@ class Nav extends Component {
     this.logout = this.logout.bind(this)
   }
 
+  closeNav() {
+    document.getElementById('navi-toggle').checked = false
+  }
+
   showForm(e) {
     e.preventDefault()
     this.props.showNewAddSpotForm()
+    this.closeNav()
   }
 
   logout(e) {
