@@ -37,7 +37,7 @@ class Map extends Component {
               <SkateSpot
                 lat={skatespot.latitude}
                 lng={skatespot.longitude}
-                text={skatespot.name}
+                text={'SK8'}
               />
             ))}
           </GoogleMapReact>
