@@ -30,7 +30,6 @@ class CreateSpot extends Component {
     Geocode.fromAddress(`${skatePark.street} ${skatePark.zip}`).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location
-        console.log(lat, lng)
         skatePark.longitude = lng
         skatePark.latitude = lat
         this.props.addNewSpot(skatePark)
@@ -84,7 +83,7 @@ class CreateSpot extends Component {
           />
           <div className="create_spot_btn_group">
             <button onClick={this.setToHide} className="cancel_spot">
-              Cancel
+              Close
             </button>
             <input
               type="submit"

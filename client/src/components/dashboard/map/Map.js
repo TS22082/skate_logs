@@ -4,9 +4,12 @@ import UserLocation from './user_location/UserLocation'
 import GoogleMapReact from 'google-map-react'
 import GOOGLE_API_KEY from './../../../google_map'
 import CreateSpot from './create_spot/CreateSpot'
+import { connect } from 'react-redux'
 
 class Map extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(this.props.locationData.locationData)
+  }
 
   render() {
     const center = {
@@ -30,7 +33,13 @@ class Map extends Component {
               lng={this.props.longitude}
               text={"You're here"}
             />
-            <SkateSpot lat={37.881101} lng={-122.3046675} text={'Skate Spot'} />
+            {this.props.locationData.locationData.map(skatespot => (
+              <SkateSpot
+                lat={skatespot.latitude}
+                lng={skatespot.longitude}
+                text={skatespot.name}
+              />
+            ))}
           </GoogleMapReact>
         </div>
       </div>
@@ -38,4 +47,8 @@ class Map extends Component {
   }
 }
 
-export default Map
+const mapStateToProps = state => ({
+  locationData: state.locationData
+})
+
+export default connect(mapStateToProps)(Map)
