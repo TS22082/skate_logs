@@ -44,19 +44,27 @@ class CreateSpot extends Component {
         >
           <input
             type="text"
-            name="street"
-            placeholder="Street address"
+            name="name"
+            placeholder="Name"
             onChange={this.onChange}
             className="create_spot_input"
             id="name"
           />
           <input
-            type="number"
-            name="zip"
-            placeholder="Zip code"
+            type="text"
+            name="street"
+            placeholder="Street Address"
             onChange={this.onChange}
             className="create_spot_input"
-            id="email"
+            id="street"
+          />
+          <input
+            type="number"
+            name="zip"
+            placeholder="Zip Code"
+            onChange={this.onChange}
+            className="create_spot_input"
+            id="zip"
           />
           <div className="create_spot_btn_group">
             <button onClick={this.setToHide} className="cancel_spot">
