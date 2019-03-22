@@ -6,9 +6,7 @@ import GOOGLE_API_KEY from './../../../google_map'
 import CreateSpot from './create_spot/CreateSpot'
 
 class Map extends Component {
-  componentDidMount() {
-    console.log(this.props)
-  }
+  componentDidMount() {}
 
   render() {
     const center = {

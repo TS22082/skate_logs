@@ -18,7 +18,6 @@ if (localStorage.jwtToken) {
   const decoded = jwt_decode(localStorage.jwtToken)
   store.dispatch(setCurrentUser(decoded))
   const currentTime = Date.now() / 1000
-  console.log('Time Left: ' + Math.ceil(decoded.exp - currentTime))
 
   if (decoded.exp < currentTime) {
     console.log('token expired')

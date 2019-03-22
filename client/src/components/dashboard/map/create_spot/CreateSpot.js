@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import Geocode from 'react-geocode'
 import './createSpot.css'
 import { connect } from 'react-redux'
+import GOOGLE_API_KEY from './../../../../google_map'
 import {
   addNewSpot,
   hideNewSpotForm
 } from '../../../../redux_state/actions/spotActions'
 
+Geocode.setApiKey(GOOGLE_API_KEY)
 class CreateSpot extends Component {
   constructor() {
     super()
@@ -18,11 +21,24 @@ class CreateSpot extends Component {
   onSubmit(e) {
     e.preventDefault()
     const skatePark = {
+      name: this.state.name,
       street: this.state.street,
-      zip: this.state.zip
+      zip: this.state.zip,
+      longitude: '',
+      latitude: ''
     }
-    this.props.addNewSpot(skatePark)
-    console.log(this.props)
+    Geocode.fromAddress(`${skatePark.street} ${skatePark.zip}`).then(
+      response => {
+        const { lat, lng } = response.results[0].geometry.location
+        console.log(lat, lng)
+        skatePark.longitude = lng
+        skatePark.latitude = lat
+        this.props.addNewSpot(skatePark)
+      },
+      error => {
+        console.error(error)
+      }
+    )
   }
 
   setToHide(e) {
