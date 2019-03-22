@@ -37,7 +37,11 @@ class CreateSpot extends Component {
   render() {
     return !this.props.locationData.showNewSpotForm ? null : (
       <div className="create_spot_form_contaier">
-        <form className="create_spot_form">
+        <form
+          onSubmit={this.onSubmit}
+          className="create_spot_form"
+          id="new_spot_form"
+        >
           <input
             type="text"
             name="street"
@@ -58,9 +62,11 @@ class CreateSpot extends Component {
             <button onClick={this.setToHide} className="cancel_spot">
               Cancel
             </button>
-            <button onClick={this.onSubmit} className="add_spot_submit">
-              Add Skate Spot
-            </button>
+            <input
+              type="submit"
+              value="Add Skate Spot"
+              className="add_spot_submit"
+            />
           </div>
         </form>
       </div>
