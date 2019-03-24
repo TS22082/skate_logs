@@ -11,7 +11,6 @@ import setAuthToken from './components/auth/setAuthToken'
 import { setCurrentUser, logoutUser } from './redux_state/actions/authActions'
 import { clearCurrentProfile } from './redux_state/actions/profileActions'
 import Nav from './components/nav/Nav'
-import CreateSpot from './components/dashboard/map/create_spot/CreateSpot'
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken)
@@ -37,9 +36,6 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            </Switch>
-            <Switch>
-              <PrivateRoute exact path="/createSpot" component={CreateSpot} />
             </Switch>
           </div>
         </Router>

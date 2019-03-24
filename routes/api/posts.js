@@ -9,11 +9,13 @@ const validatePostInput = require('../../validation/post')
 // @route   GET api/posts/test
 // @desc    Tests post route
 // @access  Public
+
 router.get('/test', (req, res) => res.json({ msg: 'Posts Works' }))
 
 // @route   GET api/posts
 // @desc    Get posts
 // @access  Public
+
 router.get('/', (req, res) => {
   Post.find()
     .sort({ date: -1 })
@@ -24,6 +26,7 @@ router.get('/', (req, res) => {
 // @route   GET api/posts/:id
 // @desc    Get post by id
 // @access  Public
+
 router.get('/:id', (req, res) => {
   Post.findById(req.params.id)
     .then(post => res.json(post))
@@ -35,6 +38,7 @@ router.get('/:id', (req, res) => {
 // @route   POST api/posts
 // @desc    Create post
 // @access  Private
+
 router.post(
   '/',
   passport.authenticate('jwt', { session: false }),
@@ -45,12 +49,13 @@ router.post(
     }
 
     const newPost = new Post({
-      text: req.body.text,
       name: req.body.name,
-      avatar: req.body.avatar,
+      street: req.body.street,
+      zip: req.body.zip,
+      longitude: req.body.longitude,
+      latitude: req.body.latitude,
       user: req.user.id
     })
-
     newPost.save().then(post => res.json(post))
   }
 )
@@ -58,6 +63,7 @@ router.post(
 // @route   DELETE api/posts/:id
 // @desc    Delete post
 // @access  Private
+
 router.delete(
   '/:id',
   passport.authenticate('jwt', { session: false }),
@@ -80,6 +86,7 @@ router.delete(
 // @route   POST api/posts/like/:id
 // @desc    Like post
 // @access  Private
+
 router.post(
   '/like/:id',
   passport.authenticate('jwt', { session: false }),
@@ -108,6 +115,7 @@ router.post(
 // @route   POST api/posts/unlike/:id
 // @desc    unlike post
 // @access  Private
+
 router.post(
   '/unlike/:id',
   passport.authenticate('jwt', { session: false }),
