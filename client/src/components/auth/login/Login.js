@@ -53,6 +53,7 @@ class Login extends Component {
             Login
           </button>
           <button
+            type="button"
             className="signup_link_btn"
             onClick={() => this.props.changeWindow()}
           >

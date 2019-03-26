@@ -86,6 +86,7 @@ class CreateSpot extends Component {
               Close
             </button>
             <input
+              onClick={this.onSubmit}
               type="submit"
               value="Add Skate Spot"
               className="add_spot_submit"

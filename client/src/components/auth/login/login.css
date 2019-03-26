@@ -1,7 +1,6 @@
 .login_form {
   display: grid;
   grid-template-columns: 1fr;
-  animation: fadeIn 2s ease;
 }
 
 .login_email_input,
@@ -14,8 +13,6 @@
   color: white;
   background-color: black;
   justify-self: center;
-  transition: all 0.2s ease-in-out;
-
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -58,19 +55,11 @@ input:focus:invalid {
   text-decoration: underline;
 }
 
+.signup_link_btn:hover {
+  cursor: pointer;
+}
+
 .login_submit_btn:hover {
-  transform: translateY(-3px);
-}
-
-.login_submit_btn:active {
-  transform: translateY(-1px);
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  border: solid #2ecc71;
+  cursor: pointer;
 }

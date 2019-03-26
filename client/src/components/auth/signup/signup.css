@@ -1,7 +1,6 @@
 .signup_form {
   display: grid;
   grid-template-columns: 1fr;
-  animation: fadeIn 2s ease;
 }
 
 .signup_email_input,
@@ -58,19 +57,14 @@ input:focus:invalid {
   text-decoration: underline;
 }
 
+.login_link_btn:hover {
+  cursor: pointer;
+}
 .signup_submit_btn:hover {
-  transform: translateY(-3px);
+  border: solid #2ecc71;
+  cursor: pointer;
 }
 
 .signup_submit_btn:active {
   transform: translateY(-1px);
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }

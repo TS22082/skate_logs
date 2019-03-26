@@ -1,5 +1,8 @@
 .create_spot_form_contaier {
   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2000;
   width: 30%;
   background-color: rgba(0, 0, 0, 0.527);
@@ -9,7 +12,6 @@
 .create_spot_form {
   display: grid;
   grid-template-columns: 1fr;
-  animation: fadeIn 2s ease;
 }
 
 .create_spot_input {
@@ -71,19 +73,10 @@
 }
 
 .add_spot_submit:hover {
-  transform: translateY(-3px);
+  border: solid #2ecc71;
   cursor: pointer;
 }
 
 .add_spot_submit:active {
   transform: translateY(-1px);
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
