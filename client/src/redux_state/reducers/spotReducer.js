@@ -1,8 +1,14 @@
-import { ADD_SPOT, HIDE_NEW_SPOT_FORM, SHOW_NEW_SPOT_FORM } from '../types'
+import {
+  ADD_SPOT,
+  HIDE_NEW_SPOT_FORM,
+  SHOW_NEW_SPOT_FORM,
+  GET_POSTS
+} from '../types'
 
 const initialState = {
   showNewSpotForm: false,
-  locationData: []
+  locationData: [],
+  posts: []
 }
 
 export default function(state = initialState, action) {
@@ -21,6 +27,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         locationData: [action.payload, ...state.locationData]
+      }
+    case GET_POSTS:
+      return {
+        ...state,
+        posts: action.payload,
+        loading: false
       }
     default:
       return state
