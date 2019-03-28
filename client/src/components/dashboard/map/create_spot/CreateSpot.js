@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import GOOGLE_API_KEY from './../../../../google_map'
 import {
   addNewSpot,
-  hideNewSpotForm
+  hideNewSpotForm,
+  getSpots
 } from '../../../../redux_state/actions/spotActions'
 
 Geocode.setApiKey(GOOGLE_API_KEY)
@@ -38,6 +39,7 @@ class CreateSpot extends Component {
         console.error(error)
       }
     )
+    this.setToHide(e)
   }
 
   setToHide(e) {
@@ -82,7 +84,11 @@ class CreateSpot extends Component {
             id="zip"
           />
           <div className="create_spot_btn_group">
-            <button onClick={this.setToHide} className="cancel_spot">
+            <button
+              type="button"
+              onClick={this.setToHide}
+              className="cancel_spot"
+            >
               Close
             </button>
             <input
@@ -104,5 +110,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addNewSpot, hideNewSpotForm }
+  { addNewSpot, hideNewSpotForm, getSpots }
 )(CreateSpot)

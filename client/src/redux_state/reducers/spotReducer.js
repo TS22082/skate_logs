@@ -7,7 +7,6 @@ import {
 
 const initialState = {
   showNewSpotForm: false,
-  locationData: [],
   posts: []
 }
 
@@ -26,7 +25,7 @@ export default function(state = initialState, action) {
     case ADD_SPOT:
       return {
         ...state,
-        locationData: [action.payload, ...state.locationData]
+        posts: [action.payload, ...state.posts]
       }
     case GET_POSTS:
       return {

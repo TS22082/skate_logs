@@ -11,9 +11,9 @@ import {
 } from './../types'
 
 // Add a new skate spot
-export const addNewSpot = locationData => dispatch => {
+export const addNewSpot = post => dispatch => {
   axios
-    .post('/api/posts', locationData)
+    .post('/api/posts', post)
     .then(res => dispatch({ type: ADD_SPOT, payload: res.data }))
     .catch(err => dispatch({ type: GET_ERRORS, payload: err.response.data }))
 }

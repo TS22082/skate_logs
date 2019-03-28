@@ -13,17 +13,6 @@ class Map extends Component {
   }
 
   render() {
-    console.log(this.props.locationData.posts)
-
-    const { posts } = this.props.locationData.posts
-    let postContent
-
-    if (posts === null) {
-      postContent = <h1>none</h1>
-    } else {
-      postContent = <h1>FOUND</h1>
-    }
-
     const center = {
       lat: this.props.latitude,
       lng: this.props.longitude
@@ -46,6 +35,7 @@ class Map extends Component {
             />
             {this.props.locationData.posts.map(skatespot => (
               <SkateSpot
+                key={skatespot._id}
                 lat={skatespot.latitude}
                 lng={skatespot.longitude}
                 text={'SK8'}
