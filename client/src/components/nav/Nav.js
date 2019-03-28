@@ -24,7 +24,7 @@ class Nav extends Component {
   }
 
   toggleNavDisplay() {
-    if (this.props.locationData.showNewSpotForm) {
+    if (this.props.skateSpots.showNewSpotForm) {
       return null
     } else {
       return (
@@ -87,7 +87,7 @@ class Nav extends Component {
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  locationData: state.locationData
+  skateSpots: state.skateSpots
 })
 
 export default connect(

@@ -33,7 +33,7 @@ class Map extends Component {
               lng={this.props.longitude}
               text={"You're here"}
             />
-            {this.props.locationData.posts.map(skatespot => (
+            {this.props.skateSpots.posts.map(skatespot => (
               <SkateSpot
                 key={skatespot._id}
                 lat={skatespot.latitude}
@@ -49,8 +49,7 @@ class Map extends Component {
 }
 
 const mapStateToProps = state => ({
-  locationData: state.locationData,
-  post: state.post
+  skateSpots: state.skateSpots
 })
 
 export default connect(

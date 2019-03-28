@@ -6,5 +6,5 @@ import addSpotReducer from './spotReducer'
 export default combineReducers({
   auth: authReducer,
   errors: errorReducer,
-  locationData: addSpotReducer
+  skateSpots: addSpotReducer
 })

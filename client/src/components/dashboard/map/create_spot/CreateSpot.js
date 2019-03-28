@@ -52,7 +52,7 @@ class CreateSpot extends Component {
   }
 
   render() {
-    return !this.props.locationData.showNewSpotForm ? null : (
+    return !this.props.skateSpots.showNewSpotForm ? null : (
       <div className="create_spot_form_contaier">
         <form
           onSubmit={this.onSubmit}
@@ -105,7 +105,7 @@ class CreateSpot extends Component {
 }
 
 const mapStateToProps = state => ({
-  locationData: state.locationData
+  skateSpots: state.skateSpots
 })
 
 export default connect(
