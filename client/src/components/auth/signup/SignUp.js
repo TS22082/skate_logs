@@ -78,6 +78,7 @@ class Signup extends Component {
               Sign Up
             </button>
             <button
+              type="button"
               className="login_link_btn"
               onClick={() => this.props.changeWindow()}
             >

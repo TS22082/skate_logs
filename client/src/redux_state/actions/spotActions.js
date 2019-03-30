@@ -7,7 +7,8 @@ import {
   GET_ERRORS,
   CLEAR_ERRORS,
   POST_LOADING,
-  GET_POSTS
+  GET_POSTS,
+  GET_POST
 } from './../types'
 
 // Add a new skate spot
@@ -25,6 +26,15 @@ export const getSpots = () => dispatch => {
     .get('/api/posts')
     .then(res => dispatch({ type: GET_POSTS, payload: res.data }))
     .catch(err => dispatch({ type: GET_POSTS, payload: null }))
+}
+
+// Get Skate spots by id
+export const getPost = id => dispatch => {
+  dispatch(setPostLoading())
+  axios
+    .get(`/api/posts/${id}`)
+    .then(res => dispatch({ type: GET_POST, payload: res.data }))
+    .catch(err => dispatch({ type: GET_POST, payload: null }))
 }
 
 export const showNewAddSpotForm = () => {

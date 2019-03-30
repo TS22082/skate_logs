@@ -2,7 +2,8 @@ import {
   ADD_SPOT,
   HIDE_NEW_SPOT_FORM,
   SHOW_NEW_SPOT_FORM,
-  GET_POSTS
+  GET_POSTS,
+  GET_POST
 } from '../types'
 
 const initialState = {
@@ -31,6 +32,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         posts: action.payload,
+        loading: false
+      }
+    case GET_POST:
+      return {
+        ...state,
+        post: action.payload,
         loading: false
       }
     default:

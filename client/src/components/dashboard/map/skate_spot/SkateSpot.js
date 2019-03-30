@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './skateSpot.css'
 
 export default class SkateSpot extends Component {
   render() {
     return (
       <div>
-        <p className="skateSpot" onClick={() => console.log(this.props.id)}>
+        <Link to={`post/${this.props.skatespot._id}`} className="skateSpot">
           {this.props.text}
-        </p>
+        </Link>
       </div>
     )
   }
