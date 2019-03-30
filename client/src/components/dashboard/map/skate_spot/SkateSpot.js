@@ -5,7 +5,9 @@ export default class SkateSpot extends Component {
   render() {
     return (
       <div>
-        <p className="skateSpot">{this.props.text}</p>
+        <p className="skateSpot" onClick={() => console.log(this.props.id)}>
+          {this.props.text}
+        </p>
       </div>
     )
   }

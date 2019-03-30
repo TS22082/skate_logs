@@ -36,6 +36,7 @@ class Map extends Component {
             {this.props.skateSpots.posts.map(skatespot => (
               <SkateSpot
                 key={skatespot._id}
+                id={skatespot._id}
                 lat={skatespot.latitude}
                 lng={skatespot.longitude}
                 text={'SK8'}
