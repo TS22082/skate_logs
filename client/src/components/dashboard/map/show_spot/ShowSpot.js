@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './showSpot.css'
 import { connect } from 'react-redux'
 import { getPost } from './../../../../redux_state/actions/spotActions'
+import SpotDetails from './spot_details/SpotDetails'
 
 class ShowSpot extends Component {
   constructor() {
@@ -17,20 +18,17 @@ class ShowSpot extends Component {
     if (!this.props.skateSpots.post) {
       return <h1>Loading</h1>
     } else {
-      console.log(this.props.skateSpots.post)
-
-      const { name, street, zip, likes, comments } = this.props.skateSpots.post
-      console.log(name)
-
+      // const { name, street, zip, likes, comments } = this.props.skateSpots.post
       return (
-        <div>
-          <h1>{name}</h1>
-          <h1>
-            {street}, {zip}
-          </h1>
-          <h1>{likes.length} likes</h1>
-          <h1>{comments.length} comments</h1>
-        </div>
+        <SpotDetails spot={this.props.skateSpots.post} />
+        // <div>
+        //   <h1>{name}</h1>
+        //   <h1>
+        //     {street}, {zip}
+        //   </h1>
+        //   <h1>{likes.length} likes</h1>
+        //   <h1>{comments.length} comments</h1>
+        // </div>
       )
     }
   }
