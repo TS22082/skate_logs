@@ -18,23 +18,12 @@ class ShowSpot extends Component {
     if (!this.props.skateSpots.post) {
       return <h1>Loading</h1>
     } else {
-      // const { name, street, zip, likes, comments } = this.props.skateSpots.post
-      return (
-        <SpotDetails spot={this.props.skateSpots.post} />
-        // <div>
-        //   <h1>{name}</h1>
-        //   <h1>
-        //     {street}, {zip}
-        //   </h1>
-        //   <h1>{likes.length} likes</h1>
-        //   <h1>{comments.length} comments</h1>
-        // </div>
-      )
+      return <SpotDetails spot={this.props.skateSpots.post} />
     }
   }
 
   render() {
-    return <div>{this.showSpot()}</div>
+    return this.showSpot()
   }
 }
 

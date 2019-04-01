@@ -1,0 +1,30 @@
+.details_header {
+  padding: 40px;
+  background-color: black;
+  color: white;
+}
+
+.likes_container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.likes_counter {
+  justify-self: end;
+}
+
+.likes_btn {
+  display: grid;
+  align-self: center;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 100%;
+  border: none;
+}
+
+.likes_btn:hover {
+  cursor: pointer;
+}
