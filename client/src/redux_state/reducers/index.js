@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import authReducer from './authReducer'
 import errorReducer from './errorReducer'
-import addSpotReducer from './spotReducer'
+import SpotReducer from './spotReducer'
 
 export default combineReducers({
   auth: authReducer,
   errors: errorReducer,
-  skateSpots: addSpotReducer
+  skateSpots: SpotReducer
 })

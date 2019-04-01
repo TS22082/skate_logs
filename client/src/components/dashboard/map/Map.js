@@ -383,7 +383,7 @@ class Map extends Component {
               key: GOOGLE_API_KEY
             }}
             defaultCenter={center}
-            defaultZoom={14}
+            defaultZoom={15}
             options={mapOptions}
           >
             <UserLocation
