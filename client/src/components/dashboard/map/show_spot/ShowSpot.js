@@ -19,20 +19,24 @@ class ShowSpot extends Component {
     } else {
       console.log(this.props.skateSpots.post)
 
-      const name = this.props.skateSpots.post.name
+      const { name, street, zip, likes, comments } = this.props.skateSpots.post
       console.log(name)
 
-      return <h1>{name}</h1>
+      return (
+        <div>
+          <h1>{name}</h1>
+          <h1>
+            {street}, {zip}
+          </h1>
+          <h1>{likes.length} likes</h1>
+          <h1>{comments.length} comments</h1>
+        </div>
+      )
     }
   }
 
   render() {
-    return (
-      <div>
-        <h1>Post works</h1>
-        {this.showSpot()}
-      </div>
-    )
+    return <div>{this.showSpot()}</div>
   }
 }
 
