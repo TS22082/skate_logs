@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import './spotDetails.css'
+import { connect } from 'react-redux'
+import {
+  addLike,
+  removeLike,
+  deletePost
+} from './../../../../../redux_state/actions/spotActions'
 
 class SpotDetails extends Component {
   render() {
@@ -27,4 +33,11 @@ class SpotDetails extends Component {
   }
 }
 
-export default SpotDetails
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(
+  mapStateToProps,
+  { deletePost, addLike, removeLike }
+)(SpotDetails)

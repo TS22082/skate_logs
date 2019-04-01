@@ -3,7 +3,8 @@ import {
   HIDE_NEW_SPOT_FORM,
   SHOW_NEW_SPOT_FORM,
   GET_POSTS,
-  GET_POST
+  GET_POST,
+  DELETE_POST
 } from '../types'
 
 const initialState = {
@@ -39,6 +40,11 @@ export default function(state = initialState, action) {
         ...state,
         post: action.payload,
         loading: false
+      }
+    case DELETE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter(post => post._id !== action.payload)
       }
     default:
       return state
