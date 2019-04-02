@@ -15,6 +15,8 @@ class SpotDetails extends Component {
     this.state = {
       comment: ''
     }
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   onChange(e) {
@@ -27,8 +29,7 @@ class SpotDetails extends Component {
       comment: this.state.comment,
       userId: this.props.auth.user.id
     }
-
-    this.props.addComment(commentData, this.props.post._id)
+    this.props.addComment(commentData, this.props.spot._id)
   }
 
   componentDidMount() {
@@ -82,6 +83,8 @@ class SpotDetails extends Component {
           </div>
         </div>
         <h1>{comments.length} comments</h1>
+        <input type="text" name="comment" onChange={this.onChange} />
+        <input type="button" value="add" onClick={this.onSubmit} />
       </div>
     )
   }
