@@ -76,10 +76,6 @@ class Nav extends Component {
     this.props.logoutUser()
   }
 
-  componentDidMount() {
-    console.log(this.props)
-  }
-
   render() {
     return !this.props.auth.isAuthenticated ? null : this.toggleNavDisplay()
   }

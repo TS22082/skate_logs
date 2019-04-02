@@ -17,7 +17,6 @@ class Landing extends Component {
     if (this.props.auth.isAuthenticated === true) {
       window.location.href = '/dashboard'
     }
-    console.log(this.props)
   }
 
   changeWindow() {

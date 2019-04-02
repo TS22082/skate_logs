@@ -92,7 +92,9 @@ class SpotDetails extends Component {
         </form>
 
         {this.props.skateSpots.post.comments.map(comment => (
-          <p>{comment.text}</p>
+          <div key={comment._id}>
+            <p>{comment.text}</p>
+          </div>
         ))}
       </div>
     )
