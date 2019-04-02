@@ -6,6 +6,7 @@ import {
   removeLike,
   deletePost
 } from './../../../../../redux_state/actions/spotActions'
+import like from './like.png'
 
 class SpotDetails extends Component {
   componentDidMount() {
@@ -42,19 +43,19 @@ class SpotDetails extends Component {
           <div className="likes_container">
             <h3 className="likes_counter">{likes.length} likes</h3>
             {this.checkIfAlreadyLiked(likes) ? (
-              <button
+              <img
+                src={like}
+                alt=""
+                className="unlike_btn"
                 onClick={this.unlikeSkateSpot.bind(this, _id)}
-                className="likes_btn"
-              >
-                -
-              </button>
+              />
             ) : (
-              <button
+              <img
+                src={like}
+                alt=""
+                className="like_btn"
                 onClick={this.likeSkateSpot.bind(this, _id)}
-                className="likes_btn"
-              >
-                +
-              </button>
+              />
             )}
           </div>
         </div>

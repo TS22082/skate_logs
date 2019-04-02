@@ -28,3 +28,21 @@
 .likes_btn:hover {
   cursor: pointer;
 }
+
+.unlike_btn {
+  align-self: center;
+  height: 50px;
+  width: 50px;
+}
+
+.like_btn {
+  transform: rotateX(180deg);
+  align-self: center;
+  height: 50px;
+  width: 50px;
+}
+
+.unlike_btn:hover,
+.like_btn:hover {
+  cursor: pointer;
+}
