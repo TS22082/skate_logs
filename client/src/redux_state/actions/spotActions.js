@@ -50,7 +50,7 @@ export const addLike = id => dispatch => {
 export const removeLike = id => dispatch => {
   axios
     .post(`/api/posts/unlike/${id}`)
-    .then(res => dispatch(getSpots()))
+    .then(res => dispatch(getPost(id)))
     .catch(err => dispatch({ type: GET_ERRORS, payload: err.response.data }))
 }
 
