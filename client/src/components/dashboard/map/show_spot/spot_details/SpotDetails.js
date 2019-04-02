@@ -13,7 +13,7 @@ class SpotDetails extends Component {
   constructor() {
     super()
     this.state = {
-      comment: ''
+      text: ''
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -21,20 +21,25 @@ class SpotDetails extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
+    console.log(this.state)
   }
 
   onSubmit(e) {
     e.preventDefault()
-    const commentData = {
-      comment: this.state.comment,
-      userId: this.props.auth.user.id
+    const { user } = this.props.auth
+
+    const newComment = {
+      text: this.state.text,
+      name: user.name,
+      avatar: user.avatar
     }
-    this.props.addComment(commentData, this.props.spot._id)
+
+    this.props.addComment(this.props.skateSpots.post._id, newComment)
+    this.setState({ text: '' })
   }
 
   componentDidMount() {
-    // console.log(this.props.auth.user.id)
-    // console.log(this.props.spot)
+    console.log(this.props.skateSpots.post._id)
   }
 
   likeSkateSpot(id) {
@@ -83,15 +88,18 @@ class SpotDetails extends Component {
           </div>
         </div>
         <h1>{comments.length} comments</h1>
-        <input type="text" name="comment" onChange={this.onChange} />
-        <input type="button" value="add" onClick={this.onSubmit} />
+        <form onSubmit={this.onSubmit}>
+          <input type="text" name="text" onChange={this.onChange} />
+          <input type="submit" value="add" />
+        </form>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  skateSpots: state.skateSpots
 })
 
 export default connect(
