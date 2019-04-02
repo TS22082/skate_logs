@@ -38,9 +38,7 @@ class SpotDetails extends Component {
     this.setState({ text: '' })
   }
 
-  componentDidMount() {
-    console.log(this.props.skateSpots.post._id)
-  }
+  componentDidMount() {}
 
   likeSkateSpot(id) {
     this.props.addLike(id)
@@ -92,6 +90,10 @@ class SpotDetails extends Component {
           <input type="text" name="text" onChange={this.onChange} />
           <input type="submit" value="add" />
         </form>
+
+        {this.props.skateSpots.post.comments.map(comment => (
+          <p>{comment.text}</p>
+        ))}
       </div>
     )
   }
