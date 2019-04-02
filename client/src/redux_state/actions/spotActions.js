@@ -42,7 +42,7 @@ export const getPost = id => dispatch => {
 export const addLike = id => dispatch => {
   axios
     .post(`/api/posts/like/${id}`)
-    .then(res => dispatch(getSpots()))
+    .then(res => dispatch(getPost(id)))
     .catch(err => dispatch({ type: GET_ERRORS, payload: err.response.data }))
 }
 

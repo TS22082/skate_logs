@@ -8,8 +8,12 @@ import {
 } from './../../../../../redux_state/actions/spotActions'
 
 class SpotDetails extends Component {
+  likeSkateSpot(id) {
+    this.props.addLike(id)
+  }
+
   render() {
-    const { name, street, zip, likes, comments } = this.props.spot
+    const { name, street, zip, likes, comments, _id } = this.props.spot
     return (
       <div className="spot_details">
         <div className="details_header">
@@ -20,7 +24,7 @@ class SpotDetails extends Component {
           <div className="likes_container">
             <h3 className="likes_counter">{likes.length} likes</h3>
             <button
-              onClick={() => alert('does nothing yet')}
+              onClick={this.likeSkateSpot.bind(this, _id)}
               className="likes_btn"
             >
               +
