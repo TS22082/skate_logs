@@ -4,14 +4,36 @@ import { connect } from 'react-redux'
 import {
   addLike,
   removeLike,
-  deletePost
+  deletePost,
+  addComment
 } from './../../../../../redux_state/actions/spotActions'
 import like from './like.png'
 
 class SpotDetails extends Component {
+  constructor() {
+    super()
+    this.state = {
+      comment: ''
+    }
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  onSubmit(e) {
+    e.preventDefault()
+    const commentData = {
+      comment: this.state.comment,
+      userId: this.props.auth.user.id
+    }
+
+    this.props.addComment(commentData, this.props.post._id)
+  }
+
   componentDidMount() {
-    console.log(this.props.auth.user.id)
-    console.log(this.props.spot)
+    // console.log(this.props.auth.user.id)
+    // console.log(this.props.spot)
   }
 
   likeSkateSpot(id) {
@@ -71,5 +93,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deletePost, addLike, removeLike }
+  { deletePost, addLike, removeLike, addComment }
 )(SpotDetails)
