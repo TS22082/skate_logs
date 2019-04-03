@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './showSpot.css'
 import { connect } from 'react-redux'
 import { getPost } from './../../../../redux_state/actions/spotActions'
-import SpotDetails from './spot_details/SpotDetails'
+import SpotDetails from '../spot_details/SpotDetails'
 
 class ShowSpot extends Component {
   constructor() {

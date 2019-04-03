@@ -6,7 +6,7 @@ import {
   removeLike,
   deletePost,
   addComment
-} from './../../../../../redux_state/actions/spotActions'
+} from '../../../../redux_state/actions/spotActions'
 import like from './like.png'
 
 class SpotDetails extends Component {
@@ -38,8 +38,6 @@ class SpotDetails extends Component {
     this.setState({ text: '' })
   }
 
-  componentDidMount() {}
-
   likeSkateSpot(id) {
     this.props.addLike(id)
   }
@@ -66,34 +64,45 @@ class SpotDetails extends Component {
           <h1>
             {street}, {zip}
           </h1>
-          <div className="likes_container">
-            <h3 className="likes_counter">{likes.length} likes</h3>
-            {this.checkIfAlreadyLiked(likes) ? (
-              <img
-                src={like}
-                alt=""
-                className="unlike_btn"
-                onClick={this.unlikeSkateSpot.bind(this, _id)}
-              />
-            ) : (
-              <img
-                src={like}
-                alt=""
-                className="like_btn"
-                onClick={this.likeSkateSpot.bind(this, _id)}
-              />
-            )}
-          </div>
+          <h3 className="likes_counter">{likes.length} likes</h3>
+          {this.checkIfAlreadyLiked(likes) ? (
+            <img
+              src={like}
+              alt=""
+              className="unlike_btn"
+              onClick={this.unlikeSkateSpot.bind(this, _id)}
+            />
+          ) : (
+            <img
+              src={like}
+              alt=""
+              className="like_btn"
+              onClick={this.likeSkateSpot.bind(this, _id)}
+            />
+          )}
         </div>
-        <h1>{comments.length} comments</h1>
-        <form onSubmit={this.onSubmit}>
-          <input type="text" name="text" onChange={this.onChange} />
-          <input type="submit" value="add" />
+        <h1>{comments.length} comments on this skate spot</h1>
+        <form onSubmit={this.onSubmit} className="add_comment_form">
+          <input
+            type="text"
+            name="text"
+            className="comment_text_input"
+            onChange={this.onChange}
+            required
+          />
+          <input type="submit" value="ADD" className="new_comment_btn" />
         </form>
-
-        {this.props.skateSpots.post.comments.map(comment => (
-          <div key={comment._id}>
-            <p>{comment.text}</p>
+        {this.props.skateSpots.post.comments.map((comment, index) => (
+          <div key={comment._id} className="comment_container">
+            <p className="submitted_comment">{comment.text}</p>
+            <input
+              type="button"
+              value="delete"
+              className="delete_comment_btn"
+            />
+            {index !== this.props.skateSpots.post.comments.length - 1 ? (
+              <hr />
+            ) : null}
           </div>
         ))}
       </div>
