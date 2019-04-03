@@ -46,6 +46,10 @@ class SpotDetails extends Component {
     this.props.removeLike(id)
   }
 
+  deleteSkateSpot(id) {
+    history.props.deletPost(id)
+  }
+
   checkIfAlreadyLiked(likes) {
     const { auth } = this.props
     if (likes.filter(like => like.user === auth.user.id).length > 0) {
