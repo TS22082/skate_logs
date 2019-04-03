@@ -95,13 +95,9 @@ class SpotDetails extends Component {
         {this.props.skateSpots.post.comments.map((comment, index) => (
           <div key={comment._id} className="comment_container">
             <p className="submitted_comment">{comment.text}</p>
-            <input
-              type="button"
-              value="delete"
-              className="delete_comment_btn"
-            />
+            <button className="delete_comment_btn">DELETE</button>
             {index !== this.props.skateSpots.post.comments.length - 1 ? (
-              <hr />
+              <hr className="comment_break" />
             ) : null}
           </div>
         ))}
