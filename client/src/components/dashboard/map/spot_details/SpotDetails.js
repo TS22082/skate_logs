@@ -47,7 +47,7 @@ class SpotDetails extends Component {
   }
 
   deleteSkateSpot(id) {
-    history.props.deletPost(id)
+    this.props.deletPost(id)
   }
 
   checkIfAlreadyLiked(likes) {
