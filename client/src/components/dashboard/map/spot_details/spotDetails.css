@@ -1,3 +1,17 @@
+.home_btn {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border: 2px solid white;
+  font-size: 1.25rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.home_btn:hover {
+  background-color: white;
+  color: black;
+}
+
 .details_header {
   text-align: center;
   padding: 40px;

@@ -28,6 +28,7 @@
 
 .landing-heading {
   font-size: 3.5rem;
+  margin-top: 0;
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;

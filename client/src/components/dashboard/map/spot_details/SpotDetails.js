@@ -8,6 +8,7 @@ import {
   addComment
 } from '../../../../redux_state/actions/spotActions'
 import like from './like.png'
+import { Link } from 'react-router-dom'
 
 class SpotDetails extends Component {
   constructor() {
@@ -64,6 +65,10 @@ class SpotDetails extends Component {
     return (
       <div className="spot_details">
         <div className="details_header">
+          <Link to="/dashboard" className="home_btn">
+            {' '}
+            Back To Map
+          </Link>
           <h1>{name}</h1>
           <h1>
             {street}, {zip}
