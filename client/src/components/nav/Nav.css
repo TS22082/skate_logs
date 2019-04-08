@@ -1,7 +1,9 @@
 .skate_spot_nav {
   background-color: black;
   display: grid;
+  height: 10vh;
   grid-template-columns: 80% 1fr;
+  align-items: center;
 }
 
 .title {
@@ -13,7 +15,6 @@
 
 .logout_btn {
   height: 40px;
-  align-self: center;
   justify-self: end;
   margin-right: 20px;
   cursor: pointer;

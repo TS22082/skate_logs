@@ -9,7 +9,6 @@ export default class SkateSpot extends Component {
       <div>
         <Link to={`post/${this.props.skatespot._id}`}>
           <img src={sk8r} alt="SK8" className="skateSpot" />
-          {/* {this.props.text} */}
         </Link>
       </div>
     )
