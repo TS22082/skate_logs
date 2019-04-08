@@ -3,10 +3,10 @@ import Geocode from 'react-geocode'
 import './createSpot.css'
 import { connect } from 'react-redux'
 import GOOGLE_API_KEY from './../../../../google_map'
+import addImg from './add.png'
 import {
   addNewSpot,
-  hideNewSpotForm,
-  getSpots
+  hideNewSpotForm
 } from '../../../../redux_state/actions/spotActions'
 
 Geocode.setApiKey(GOOGLE_API_KEY)
@@ -52,7 +52,14 @@ class CreateSpot extends Component {
   }
 
   render() {
-    return !this.props.skateSpots.showNewSpotForm ? null : (
+    return !this.props.skateSpots.showNewSpotForm ? (
+      <img
+        src={addImg}
+        className="create_skate_spot_btn"
+        alt="Add"
+        onClick={() => alert('poop')}
+      />
+    ) : (
       <div className="create_spot_form_contaier">
         <form
           onSubmit={this.onSubmit}
@@ -110,5 +117,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addNewSpot, hideNewSpotForm, getSpots }
+  { addNewSpot, hideNewSpotForm }
 )(CreateSpot)

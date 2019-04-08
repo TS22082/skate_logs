@@ -16,8 +16,6 @@
 
 .login_and_singup {
   background-color: rgba(0, 0, 0, 0.8);
-  /* height: 70vh;
-  width: 50%; */
   padding: 20px;
   overflow: hidden;
   border-radius: 3px;
@@ -35,5 +33,4 @@
   display: inline-block;
   color: white;
   letter-spacing: 2px;
-  transition: all 0.2s;
 }

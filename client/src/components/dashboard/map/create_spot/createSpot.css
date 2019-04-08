@@ -1,10 +1,20 @@
+.create_skate_spot_btn {
+  height: 60px;
+  position: fixed;
+  z-index: 2000;
+  border: none;
+  border-radius: 100%;
+  margin-top: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
 .create_spot_form_contaier {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2000;
-  /* width: 30%; */
   background-color: rgba(0, 0, 0, 0.527);
   padding: 20px;
 }
