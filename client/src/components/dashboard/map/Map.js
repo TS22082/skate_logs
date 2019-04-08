@@ -376,7 +376,7 @@ class Map extends Component {
 
     return (
       <div>
-        <div style={{ height: '100vh', width: '100%' }}>
+        <div style={{ height: '90vh', width: '100%' }}>
           <CreateSpot lat={this.props.latitude} lng={this.props.longitude} />
           <GoogleMapReact
             bootstrapURLKeys={{

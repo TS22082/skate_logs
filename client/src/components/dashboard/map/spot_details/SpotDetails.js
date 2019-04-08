@@ -85,7 +85,9 @@ class SpotDetails extends Component {
             />
           )}
         </div>
-        <h1>{comments.length} comments on this skate spot</h1>
+        <h1 style={{ textAlign: 'center' }}>
+          {comments.length} comments on this skate spot
+        </h1>
         <form onSubmit={this.onSubmit} className="add_comment_form">
           <input
             type="text"

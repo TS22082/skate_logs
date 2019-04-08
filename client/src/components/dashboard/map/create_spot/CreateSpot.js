@@ -6,7 +6,8 @@ import GOOGLE_API_KEY from './../../../../google_map'
 import addImg from './add.png'
 import {
   addNewSpot,
-  hideNewSpotForm
+  hideNewSpotForm,
+  showNewAddSpotForm
 } from '../../../../redux_state/actions/spotActions'
 
 Geocode.setApiKey(GOOGLE_API_KEY)
@@ -15,6 +16,7 @@ class CreateSpot extends Component {
     super()
     this.state = {}
     this.setToHide = this.setToHide.bind(this)
+    this.setToShow = this.setToShow.bind(this)
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
@@ -47,6 +49,11 @@ class CreateSpot extends Component {
     this.props.hideNewSpotForm()
   }
 
+  setToShow(e) {
+    e.preventDefault()
+    this.props.showNewAddSpotForm()
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
   }
@@ -57,7 +64,7 @@ class CreateSpot extends Component {
         src={addImg}
         className="create_skate_spot_btn"
         alt="Add"
-        onClick={() => alert('poop')}
+        onClick={this.setToShow}
       />
     ) : (
       <div className="create_spot_form_contaier">
@@ -117,5 +124,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addNewSpot, hideNewSpotForm }
+  { addNewSpot, hideNewSpotForm, showNewAddSpotForm }
 )(CreateSpot)

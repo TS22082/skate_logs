@@ -1,5 +1,5 @@
 .create_skate_spot_btn {
-  height: 60px;
+  height: 4.5rem;
   position: fixed;
   z-index: 2000;
   border: none;
@@ -15,13 +15,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2000;
-  background-color: rgba(0, 0, 0, 0.527);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
 }
 
 .create_spot_form {
   display: grid;
   grid-template-columns: 1fr;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .create_spot_input {
@@ -34,10 +37,6 @@
   background-color: black;
   justify-self: center;
   transition: all 0.2s ease-in-out;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   padding-left: 10px;
 }
 

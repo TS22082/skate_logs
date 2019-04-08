@@ -31,9 +31,9 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Nav />
         <Router>
           <div className="App">
+            <Nav />
             <Route exact path="/" component={Landing} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
