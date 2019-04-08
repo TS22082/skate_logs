@@ -1,7 +1,7 @@
 .skate_spot_nav {
   background-color: black;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 80% 1fr;
 }
 
 .title {

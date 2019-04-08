@@ -20,11 +20,10 @@ class Nav extends Component {
   render() {
     return !this.props.auth.isAuthenticated ? null : (
       <nav className="skate_spot_nav">
-        <h3 className="title">Skate Spot</h3>
+        <h2 className="title">Skate Spot</h2>
         <img
           src={logout_img}
           alt="Logout"
-          srcset=""
           className="logout_btn"
           onClick={this.logout}
         />

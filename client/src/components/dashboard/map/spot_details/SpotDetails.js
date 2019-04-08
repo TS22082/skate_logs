@@ -5,7 +5,8 @@ import {
   addLike,
   removeLike,
   deletePost,
-  addComment
+  addComment,
+  deleteComment
 } from '../../../../redux_state/actions/spotActions'
 import like from './like.png'
 import { Link } from 'react-router-dom'
@@ -48,7 +49,11 @@ class SpotDetails extends Component {
   }
 
   deleteSkateSpot(id) {
-    this.props.deletPost(id)
+    this.props.deletePost(id)
+  }
+
+  deleteComment(id) {
+    this.props.deleteComment(this.props.skateSpots.post._id, id)
   }
 
   checkIfAlreadyLiked(likes) {
@@ -59,6 +64,8 @@ class SpotDetails extends Component {
       return false
     }
   }
+
+  // 5cab8e40b489f64f88e6b423
 
   render() {
     const { name, street, zip, likes, comments, _id } = this.props.spot
@@ -106,7 +113,12 @@ class SpotDetails extends Component {
         {this.props.skateSpots.post.comments.map((comment, index) => (
           <div key={comment._id} className="comment_container">
             <p className="submitted_comment">{comment.text}</p>
-            <button className="delete_comment_btn">DELETE</button>
+            <button
+              className="delete_comment_btn"
+              onClick={this.deleteComment.bind(this, comment._id)}
+            >
+              DELETE
+            </button>
             {index !== this.props.skateSpots.post.comments.length - 1 ? (
               <hr className="comment_break" />
             ) : null}
@@ -124,5 +136,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { deletePost, addLike, removeLike, addComment }
+  { deletePost, addLike, removeLike, addComment, deleteComment }
 )(SpotDetails)

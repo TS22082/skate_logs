@@ -11,6 +11,7 @@ class Landing extends Component {
     this.state = {
       login: true
     }
+    this.changeWindow = this.changeWindow.bind(this)
   }
 
   componentDidMount() {
@@ -34,9 +35,9 @@ class Landing extends Component {
         <div className="login_and_singup">
           <h2 className="landing-heading">Skate about it</h2>
           {this.state.login ? (
-            <Login changeWindow={() => this.changeWindow()} />
+            <Login changeWindow={this.changeWindow} />
           ) : (
-            <Signup changeWindow={() => this.changeWindow()} />
+            <Signup changeWindow={this.changeWindow} />
           )}
         </div>
       </div>
