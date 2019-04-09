@@ -23,13 +23,11 @@ class SpotDetails extends Component {
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
-    console.log(this.state)
   }
 
   onSubmit(e) {
     e.preventDefault()
     const { user } = this.props.auth
-
     const newComment = {
       text: this.state.text,
       name: user.name,
@@ -108,15 +106,18 @@ class SpotDetails extends Component {
           />
           <input type="submit" value="ADD" className="new_comment_btn" />
         </form>
+
         {this.props.skateSpots.post.comments.map((comment, index) => (
           <div key={comment._id} className="comment_container">
             <p className="submitted_comment">{comment.text}</p>
-            <button
-              className="delete_comment_btn"
-              onClick={this.deleteComment.bind(this, comment._id)}
-            >
-              DELETE
-            </button>
+            {this.props.auth.user.id !== comment.user ? null : (
+              <button
+                className="delete_comment_btn"
+                onClick={this.deleteComment.bind(this, comment._id)}
+              >
+                DELETE
+              </button>
+            )}
             {index !== this.props.skateSpots.post.comments.length - 1 ? (
               <hr className="comment_break" />
             ) : null}
