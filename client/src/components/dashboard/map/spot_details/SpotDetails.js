@@ -65,8 +65,6 @@ class SpotDetails extends Component {
     }
   }
 
-  // 5cab8e40b489f64f88e6b423
-
   render() {
     const { name, street, zip, likes, comments, _id } = this.props.spot
     return (

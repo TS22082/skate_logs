@@ -8,7 +8,7 @@ class ShowSpot extends Component {
   constructor() {
     super()
     this.state = {}
-    this.showSpot = this.showSpot.bind(this)
+    // this.showSpot = this.showSpot.bind(this)
   }
   componentDidMount() {
     this.props.getPost(this.props.match.params.id)
