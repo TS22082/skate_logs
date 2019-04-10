@@ -106,7 +106,6 @@ class SpotDetails extends Component {
           />
           <input type="submit" value="ADD" className="new_comment_btn" />
         </form>
-
         {this.props.skateSpots.post.comments.map((comment, index) => (
           <div key={comment._id} className="comment_container">
             <p className="submitted_comment">{comment.text}</p>

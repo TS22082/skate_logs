@@ -12,6 +12,23 @@ import {
 
 Geocode.setApiKey(GOOGLE_API_KEY)
 class CreateSpot extends Component {
+  componentDidMount() {
+    Geocode.fromLatLng(this.props.lat, this.props.lng).then(
+      response => {
+        const location = response.results[0]
+
+        const locationNum = location.address_components[0].long_name
+        const locationStreet = location.address_components[1].long_name
+        const locationZip = location.address_components[6].long_name
+        this.setState({ locationNum, locationStreet, locationZip })
+        console.log(this.state)
+      },
+      error => {
+        console.error(error)
+      }
+    )
+  }
+
   constructor() {
     super()
     this.state = {}
@@ -88,6 +105,9 @@ class CreateSpot extends Component {
             onChange={this.onChange}
             className="create_spot_input"
             id="street"
+            defaultValue={
+              this.state.locationNum + ' ' + this.state.locationStreet
+            }
           />
           <input
             type="number"
@@ -96,6 +116,7 @@ class CreateSpot extends Component {
             onChange={this.onChange}
             className="create_spot_input"
             id="zip"
+            defaultValue={this.state.locationZip}
           />
           <div className="create_spot_btn_group">
             <button

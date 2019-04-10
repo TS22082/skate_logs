@@ -54,6 +54,7 @@ class Signup extends Component {
             className="signup_email_input"
             id="email"
             required
+            defaultValue=""
           />
           <input
             type="text"
