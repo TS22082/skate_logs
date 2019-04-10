@@ -10,6 +10,7 @@ import {
 } from '../../../../redux_state/actions/spotActions'
 import like from './like.png'
 import { Link } from 'react-router-dom'
+import SpotPics from './spot_pics/SpotPics'
 
 class SpotDetails extends Component {
   constructor() {
@@ -93,6 +94,7 @@ class SpotDetails extends Component {
             />
           )}
         </div>
+        <SpotPics />
         <h1 style={{ textAlign: 'center' }}>
           {comments.length} comments on this skate spot
         </h1>
