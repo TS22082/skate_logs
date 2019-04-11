@@ -46,6 +46,26 @@ const PostSchema = new Schema({
       }
     }
   ],
+
+  pictures: [
+    {
+      img: {
+        type: Buffer
+      },
+      date: {
+        type: Date,
+        default: Date.now
+      },
+      name: {
+        type: String
+      },
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+      }
+    }
+  ],
+
   date: {
     type: Date,
     default: Date.now

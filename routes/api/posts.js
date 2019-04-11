@@ -5,6 +5,8 @@ const passport = require('passport')
 const Post = require('../../models/Post')
 const Profile = require('../../models/Profile')
 const validatePostInput = require('../../validation/post')
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
 // @route   GET api/posts/test
 // @desc    Tests post route
@@ -210,6 +212,33 @@ router.delete(
         post.save().then(post => res.json(post))
       })
       .catch(err => res.status(404).json({ postnotfound: 'No post found' }))
+  }
+)
+
+// @route   POST api/posts/pictures/:id
+// @desc    add picture
+// @access  Private
+
+router.post(
+  '/pictures/:id',
+  passport.authenticate('jwt', { session: false }),
+  upload.single('skateSpotImage'),
+  (req, res) => {
+    console.log(req.file)
+    Post.findById(req.params.id)
+      .then(post => {
+        const newPic = {
+          _id: new mongoose.Types.ObjectId(),
+          name: req.body.name
+        }
+
+        // Add pic comments array
+        post.comments.unshift(newPic)
+
+        // Save
+        post.save().then(post => res.json(post))
+      })
+      .catch(err => res.status(404).json({ postnotfound: 'Post not found' }))
   }
 )
 

@@ -21,7 +21,6 @@ class CreateSpot extends Component {
         const locationStreet = location.address_components[1].long_name
         const locationZip = location.address_components[6].long_name
         this.setState({ locationNum, locationStreet, locationZip })
-        console.log(this.state)
       },
       error => {
         console.error(error)
