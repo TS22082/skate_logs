@@ -226,12 +226,12 @@ router.delete(
   }
 )
 
-// @route   POST api/post/pictures/:id
+// @route   POST api/post/picture/:id
 // @desc    add picture
 // @access  Private
 
 router.post(
-  '/pictures/:id',
+  '/picture/:id',
   passport.authenticate('jwt', { session: false }),
   upload.single('img'),
   (req, res) => {
