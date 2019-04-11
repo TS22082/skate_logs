@@ -50,7 +50,8 @@ const PostSchema = new Schema({
   pictures: [
     {
       img: {
-        type: Buffer
+        type: Buffer,
+        required: true
       },
       date: {
         type: Date,

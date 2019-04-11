@@ -27,6 +27,9 @@ app.use(passport.initialize())
 // Passport Config
 require('./config/passport')(passport)
 
+// make uploads folder publicly available
+app.use('/uploads', express.static('uploads'))
+
 //Use Routes
 app.use('/api/users', users)
 app.use('/api/profile', profile)

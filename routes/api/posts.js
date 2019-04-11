@@ -6,7 +6,17 @@ const Post = require('../../models/Post')
 const Profile = require('../../models/Profile')
 const validatePostInput = require('../../validation/post')
 const multer = require('multer')
-const upload = multer({ dest: 'uploads/' })
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, './uploads/')
+  },
+  filename: function(req, file, cb) {
+    cb(null, file.filename)
+  }
+})
+
+const upload = multer({ storage: storage })
 
 // @route   GET api/posts/test
 // @desc    Tests post route
@@ -150,7 +160,7 @@ router.post(
   }
 )
 
-// @route   POST api/posts/comment/:id
+// @route   POST api/post/comment/:id
 // @desc    Add comment to post
 // @access  Private
 router.post(
@@ -181,9 +191,10 @@ router.post(
   }
 )
 
-// @route   DELETE api/posts/comment/:id/:comment_id
+// @route   DELETE api/post/comment/:id
 // @desc    Remove comment from post
 // @access  Private
+
 router.delete(
   '/comment/:id/:comment_id',
   passport.authenticate('jwt', { session: false }),
@@ -215,26 +226,24 @@ router.delete(
   }
 )
 
-// @route   POST api/posts/pictures/:id
+// @route   POST api/post/pictures/:id
 // @desc    add picture
 // @access  Private
 
 router.post(
   '/pictures/:id',
   passport.authenticate('jwt', { session: false }),
-  upload.single('skateSpotImage'),
+  upload.single('img'),
   (req, res) => {
     console.log(req.file)
     Post.findById(req.params.id)
       .then(post => {
-        const newPic = {
-          _id: new mongoose.Types.ObjectId(),
-          name: req.body.name
+        const pic = {
+          name: req.body.name,
+          img: req.file.path
         }
-
-        // Add pic comments array
-        post.comments.unshift(newPic)
-
+        // Add pic to pictures array
+        post.pictures.unshift(pic)
         // Save
         post.save().then(post => res.json(post))
       })
