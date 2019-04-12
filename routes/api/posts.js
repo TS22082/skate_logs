@@ -236,18 +236,16 @@ router.post(
   upload.single('img'),
   (req, res) => {
     console.log(req.file)
-    Post.findById(req.params.id)
-      .then(post => {
-        const pic = {
-          name: req.body.name,
-          img: req.file.path
-        }
-        // Add pic to pictures array
-        post.pictures.unshift(pic)
-        // Save
-        post.save().then(post => res.json(post))
-      })
-      .catch(err => res.status(404).json({ postnotfound: 'Post not found' }))
+    // Post.findById(req.params.id)
+    //   .then(post => {
+    //     const pic = {
+    //       name: req.body.name,
+    //       img: req.file.path
+    //     }
+    //     post.pictures.unshift(pic)
+    //     post.save().then(post => res.json(post))
+    //   })
+    //   .catch(err => res.status(404).json({ postnotfound: 'Post not found' }))
   }
 )
 
