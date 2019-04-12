@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addPicture } from './../../../../../redux_state/actions/spotActions'
 import './spot_pics.css'
 
 class SpotPics extends Component {
@@ -30,4 +32,12 @@ class SpotPics extends Component {
   }
 }
 
-export default SpotPics
+const mapStateToProps = state => ({
+  auth: state.auth,
+  skateSpots: state.skateSpots
+})
+
+export default connect(
+  mapStateToProps,
+  { addPicture }
+)(SpotPics)
