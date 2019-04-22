@@ -12,25 +12,23 @@ class SpotPics extends Component {
     this.fileUploadHandler = this.fileUploadHandler.bind(this)
   }
 
-  componentDidMount() {
-    console.log(this.props.skateSpots.post._id)
-    //console.log(this.props.skateSpots._id)
-  }
+  componentDidMount() {}
 
   fileSelectorHandler = event => {
     this.setState({ selectedFile: event.target.files[0] })
   }
 
   fileUploadHandler = event => {
-    const fd = new FormData()
-    fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
-    this.props.addPicture(this.props.skateSpots.post._id, fd)
+    const pictureData = new FormData()
+    const postID = this.props.skateSpots.post._id
+    pictureData.append('image', this.state.selectedFile)
+    this.props.addPicture(postID, pictureData)
   }
 
   render() {
     return (
       <div>
-        <input type="file" onChange={this.fileSelectorHandler} />
+        <input type="file" name="image" onChange={this.fileSelectorHandler} />
         <button onClick={this.fileUploadHandler}>Upload</button>
       </div>
     )

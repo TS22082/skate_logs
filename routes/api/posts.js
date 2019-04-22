@@ -8,15 +8,15 @@ const validatePostInput = require('../../validation/post')
 const multer = require('multer')
 
 const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
+  destination: (req, file, cb) => {
     cb(null, './uploads/')
   },
-  filename: function(req, file, cb) {
+  filename: (req, file, cb) => {
     cb(null, file.filename)
   }
 })
 
-const upload = multer({ storage: storage })
+const upload = multer({ storage })
 
 // @route   GET api/posts/test
 // @desc    Tests post route
@@ -160,7 +160,7 @@ router.post(
   }
 )
 
-// @route   POST api/post/comment/:id
+// @route   POST api/posts/comment/:id
 // @desc    Add comment to post
 // @access  Private
 router.post(
@@ -226,16 +226,15 @@ router.delete(
   }
 )
 
-// @route   POST api/post/picture/:id
+// @route   POST api/posts/picture/:id
 // @desc    add picture
 // @access  Private
 
 router.post(
   '/picture/:id',
   passport.authenticate('jwt', { session: false }),
-  upload.single('img'),
+  upload.single('image'),
   (req, res) => {
-    console.log(req.file)
     // Post.findById(req.params.id)
     //   .then(post => {
     //     const pic = {
